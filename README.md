@@ -1,0 +1,2 @@
+# SkripsiAIDS
+code : kartika
