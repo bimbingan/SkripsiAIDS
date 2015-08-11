@@ -1,0 +1,87 @@
+<section class="content-header">
+    <h1>Detail Operator</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+        <li><a href="{$config->site_url('pengaturan/operator')}"> Operator</a></li>
+        <li><a href="#">{$result.operator_name|default:''}</a></li>
+    </ol>
+</section>
+<!-- notification template -->
+{include file="base/templates/notification.html"}
+<!-- end of notification template-->
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Apakah anda yakin akan menghapus data dibawah ini?</h3>
+            <div class="box-tools">
+                <a href="{$config->site_url('pengaturan/operator')}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i>&nbsp; Kembali</a>
+            </div>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <form action="{$config->site_url('pengaturan/operator/delete_process')}" method="post" onsubmit="return confirm('Apakah anda yakin akan menghapus data berikut ini?')">
+            <div class="box-body">
+                <div class="row">
+                    <input name="user_id" type="hidden"  value="{$result.user_id|default:''}" />
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td width="50%">Nama Lengkap</td>
+                                        <td width="50%">{$result.operator_name|default:''}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Jenis Kelamin</td>
+                                        <td>
+                                            {if $result.operator_gender|default:'' eq 'L'}Laki - Laki{/if}
+                                            {if {$result.operator_gender|default:''} eq 'P'}Perempuan{/if}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tempat Lahir</td>
+                                        <td>{$result.operator_birth_place|default:''}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal Lahir</td>
+                                        <td>{$result.operator_birth_day|default:''}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td width="50%">Alamat</td>
+                                        <td width="50%">{$result.operator_address|default:''}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>{$result.user_mail|default:''}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nomor Telepon</td>
+                                        <td>{$result.operator_phone|default:''}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Foto :</th>
+                                        <td>
+                                            <img src="{$operator_photo|default:''}" alt="" style="height: 160px; background-color: #fff; border: 1px solid #ccc; padding: 5px;" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <input type="submit" name="save" value="Hapus" class="btn btn-danger pull-right" />
+            </div>
+        </form>
+    </div>
+</section>

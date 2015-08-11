@@ -1,0 +1,109 @@
+<script type="text/javascript">
+$(document).ready(function() {
+    // date picker
+    /* KURANG DATEPICKER */
+});
+</script>
+
+<section class="content-header">
+    <h1>Ubah Data Operator</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+        <li><a href="{$config->site_url('pengaturan/operator')}"> Operator</a></li>
+        <li><a href="#">Ubah Data</a></li>
+    </ol>
+</section>
+<!-- notification template -->
+{include file="base/templates/notification.html"}
+<!-- end of notification template-->
+<section class="content">
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">Data Pribadi</a></li>
+            <li class=""><a href="{$config->site_url('pengaturan/operator/account/'|cat:$result.user_id)}" >User Account</a></li>
+        </ul>
+        <div class="box-header ">
+
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <form action="{$config->site_url('pengaturan/operator/edit_process')}" method="post">
+            <div class="box-body">
+                <div class="form-horizontal">
+                    <input name="user_id" type="hidden"  value="{$result.user_id|default:''}" />
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Nama Lengkap</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" name="operator_name" type="text" value="{$result.operator_name|default:''}" size="35" maxlength="50" />
+                                    <small>* Wajib diisi</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Tempat Lahir</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" name="operator_birth_place" type="text" value="{$result.operator_birth_place|default:''}" size="25" maxlength="50" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Tanggal Lahir</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" name="operator_birth_day" type="text" value="{$result.operator_birth_day|default:''}" size="10" maxlength="10" class="tanggal" style="text-align: center;" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Jenis Kelamin</label>
+                                <div class="col-sm-8">
+                                    <label class="radio-inline"><input type="radio" name="operator_gender" value="L" {if {$result.operator_gender|default:''} eq 'L'}checked="checked"{/if} />LAKI - LAKI</label>
+                                    <label class="radio-inline"><input type="radio" name="operator_gender" value="P" {if {$result.operator_gender|default:''} eq 'P'}checked="checked"{/if} />PEREMPUAN</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Alamat</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" name="operator_address" type="text" value="{$result.operator_address|default:''}" size="45" maxlength="100" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Email</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" name="user_mail" type="text" value="{$result.user_mail|default:''}" size="30" maxlength="50" />
+                                    <small>* wajib diisi</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Nomor Telepon</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" name="operator_phone" type="text" value="{$result.operator_phone|default:''}" size="15" maxlength="30" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Jabatan</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" name="operator_jabatan" type="text" value="{$result.operator_jabatan|default:''}" size="50" maxlength="50" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="page-header">Foto</h2>
+                <div class="row">
+                    <div class="col-sm-4 img col-sm-offset-4">
+                        <img class="img-responsive" src="{$operator_photo|default:''}" alt="" style="background-color: #fff; border: 1px solid #ccc; padding: 5px;" />
+                        <input class="form-control" type="file" name="operator_photo" size="30" />
+                    </div>
+                </div>
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <div class="col-lg-12">
+                    <div class="pull-right">
+                        <input type="reset" name="save" value="Reset" class="btn btn-default" />
+                        <input type="submit" name="save" value="Simpan" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
