@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2015-08-09 08:27:55
+<?php /* Smarty version Smarty-3.0.7, created on 2015-08-12 13:55:19
          compiled from "application/views\operator/welcome/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:2132255c6f2ebec1d82-72148008%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:500455cb34278d28d3-36208049%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '09687b82d48845a0230e2754353181487647abcd' => 
     array (
       0 => 'application/views\\operator/welcome/index.html',
-      1 => 1439101674,
+      1 => 1439380517,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2132255c6f2ebec1d82-72148008',
+  'nocache_hash' => '500455cb34278d28d3-36208049',
   'function' => 
   array (
   ),
@@ -28,7 +28,7 @@ $_smarty_tpl->decodeProperties(array (
     <div class="alert alert-warning" role="alert">
     	<h4>Selamat Datang <?php echo $_smarty_tpl->getVariable('com_user')->value['role_nm'];?>
 !</h4>
-    	<p>Anda Telah Masuk ke Halaman Utama Peminatan SMA Negeri 1 Bojong</p>
+    	<p>Anda Telah Masuk ke Halaman Utama Sistem Pakar Diagnosa Penyakit HIV/Aids</p>
     </div>
     <div class="row">
     	<div class="col-md-6">

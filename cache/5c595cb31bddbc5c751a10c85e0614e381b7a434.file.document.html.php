@@ -1,23 +1,23 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2015-08-09 15:01:24
+<?php /* Smarty version Smarty-3.0.7, created on 2015-08-12 13:54:23
          compiled from "application/views\base/operator/document.html" */ ?>
-<?php /*%%SmartyHeaderCode:170055c74f24739574-28778597%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:342455cb33ef69da00-76798156%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '5c595cb31bddbc5c751a10c85e0614e381b7a434' => 
     array (
       0 => 'application/views\\base/operator/document.html',
-      1 => 1439124619,
+      1 => 1439380450,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '170055c74f24739574-28778597',
+  'nocache_hash' => '342455cb33ef69da00-76798156',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<?php if (!is_callable('smarty_modifier_capitalize')) include 'D:\xampp\htdocs\skripsi-spk.1.0\system\plugins\smarty\libs\plugins\modifier.capitalize.php';
+<?php if (!is_callable('smarty_modifier_capitalize')) include 'D:\xampp\htdocs\SkripsiAIDS\system\plugins\smarty\libs\plugins\modifier.capitalize.php';
 ?><!DOCTYPE html>
 <html lang="en">
 <!-- head -->
@@ -41,7 +41,7 @@ $_smarty_tpl->decodeProperties(array (
 
 </head>
 <!-- body -->
-<body  class="skin-green-light sidebar-mini">
+<body  class="skin-green sidebar-mini">
     <!-- load javascript -->
     <?php echo $_smarty_tpl->getVariable('LOAD_JAVASCRIPT')->value;?>
 
@@ -54,7 +54,7 @@ $_smarty_tpl->decodeProperties(array (
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>SPK</b></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>SPK</b>&nbsp; Peminatan</span>
+                <span class="logo-lg"><b>Diagnosa HIV / AIDS</b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">

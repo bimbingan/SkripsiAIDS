@@ -249,7 +249,6 @@ function _init() {
       //the height of the document.
       if ($("body").hasClass("fixed")) {
         $(".content-wrapper, .right-side").css('min-height', window_height - $('.main-footer').outerHeight());
-        alert("asasdasd");
       } else {
         var postSetWidth;
         if (window_height >= sidebar_height) {
@@ -259,8 +258,6 @@ function _init() {
         } else {
           $(".content-wrapper, .right-side").css('min-height', sidebar_height);
           postSetWidth = sidebar_height;
-          alert("hgghhfg");
-
         }
 
         //Fix for the control sidebar height
