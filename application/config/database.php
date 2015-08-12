@@ -44,17 +44,10 @@ if (!defined('BASEPATH'))
 $active_group = 'default';
 $active_record = TRUE;
 
-// apms online
-/*$db['default']['hostname'] = '202.91.14.3';
-$db['default']['username'] = 'akademik';
-$db['default']['password'] = '4k4d3m1k';
-$db['default']['database'] = 'akademik_v1_db';
-*/
-
   $db['default']['hostname'] = 'localhost';
   $db['default']['username'] = 'root';
   $db['default']['password'] = '';
-  $db['default']['database'] = 'skripsispk_v1';
+  $db['default']['database'] = 'skripsi_aids_v1_db';
 
 
 $db['default']['dbdriver'] = 'mysqli';

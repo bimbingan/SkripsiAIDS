@@ -22,6 +22,11 @@ class grade extends ApplicationBase {
         $this->_set_page_rule("R");
         // set template content
         $this->smarty->assign("template_content", "master/grade/list.html");
+
+
+
+        /* Bagian Searching dan Pagination*/
+
         // session
         $search = $this->tsession->userdata('search_grade');
         $this->smarty->assign('search', $search);
@@ -54,6 +59,11 @@ class grade extends ApplicationBase {
         // /* end of pagination ---------------------- */
         // get list data
         $params = array($grade_nm, ($start - 1), $config['per_page']);
+
+        /* END OF : Bagian Searching dan Pagination*/
+
+
+
 
         $this->smarty->assign("rs_id", $this->m_grade->get_list_grade($params));
 

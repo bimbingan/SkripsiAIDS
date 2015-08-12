@@ -1,23 +1,23 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2015-08-12 13:54:23
+<?php /* Smarty version Smarty-3.0.7, created on 2015-08-12 15:36:06
          compiled from "application/views\base/operator/document.html" */ ?>
-<?php /*%%SmartyHeaderCode:342455cb33ef69da00-76798156%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2512455cb4bc6338e72-18554339%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '5c595cb31bddbc5c751a10c85e0614e381b7a434' => 
     array (
       0 => 'application/views\\base/operator/document.html',
-      1 => 1439380450,
+      1 => 1439386561,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '342455cb33ef69da00-76798156',
+  'nocache_hash' => '2512455cb4bc6338e72-18554339',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<?php if (!is_callable('smarty_modifier_capitalize')) include 'D:\xampp\htdocs\SkripsiAIDS\system\plugins\smarty\libs\plugins\modifier.capitalize.php';
+<?php if (!is_callable('smarty_modifier_capitalize')) include 'C:\xampp\htdocs\SkripsiAIDS\system\plugins\smarty\libs\plugins\modifier.capitalize.php';
 ?><!DOCTYPE html>
 <html lang="en">
 <!-- head -->
@@ -41,7 +41,7 @@ $_smarty_tpl->decodeProperties(array (
 
 </head>
 <!-- body -->
-<body  class="skin-green sidebar-mini">
+<body  class="skin-red-light sidebar-mini">
     <!-- load javascript -->
     <?php echo $_smarty_tpl->getVariable('LOAD_JAVASCRIPT')->value;?>
 
