@@ -1,0 +1,70 @@
+<?php /* Smarty version Smarty-3.0.7, created on 2015-08-19 12:24:09
+         compiled from "application/views\stadium/list.html" */ ?>
+<?php /*%%SmartyHeaderCode:2063355d45949c5a183-28520347%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '3253089891c0a613ff8170c47fd3d7f1c8a5770f' => 
+    array (
+      0 => 'application/views\\stadium/list.html',
+      1 => 1439979846,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '2063355d45949c5a183-28520347',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+)); /*/%%SmartyHeaderCode%%*/?>
+<section class="content-header">
+    <h1>Stadium</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-th"></i> Stadium</a></li>
+        <li><a href="#">Stadium</a></li>
+    </ol>
+</section>
+<section class="content">
+    <!-- notification template -->
+    <?php $_template = new Smarty_Internal_Template("base/templates/notification.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php unset($_template);?>
+    <!-- end of notification template-->
+    <div class="box">
+        <div class="box-header with-border">
+            <h5 class="box-title">Data Stadium<small></small></h5>
+            <div class="box-tools">
+                <a href="<?php echo $_smarty_tpl->getVariable('config')->value->site_url('stadium/add');?>
+" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>&nbsp; Tambah</a>
+            </div>
+        </div>
+        <div class="box-body">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                       	<th>Kode Stadium</th>
+                        <th>Nama Stadium</th>
+						<th>Keterangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php  $_smarty_tpl->tpl_vars['result'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('rs_id')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if ($_smarty_tpl->_count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars['result']->key => $_smarty_tpl->tpl_vars['result']->value){
+?>
+						<tr> 
+						
+							<td><?php echo $_smarty_tpl->tpl_vars['result']->value['kode_stadium'];?>
+</td>
+                            <td><?php echo $_smarty_tpl->tpl_vars['result']->value['nama_stadium'];?>
+</td>
+							<td><?php echo $_smarty_tpl->tpl_vars['result']->value['ket_stadium'];?>
+</td>
+						
+						</tr>
+					<?php }} ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
