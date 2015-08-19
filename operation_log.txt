@@ -1,0 +1,29 @@
+[8672:5556:0819/195734:VERBOSE1:crash_service_main.cc(68)] Session start. cmdline is [--reporter-url=http://54.249.141.255:1127/post --application-name=Atom --v=1]
+[8672:5556:0819/195734:VERBOSE1:crash_service.cc(133)] window handle is 000707B2
+[8672:5556:0819/195734:VERBOSE1:crash_service.cc(279)] pipe name is \\.\pipe\Atom Crash Service
+dumps at 
+[8672:5556:0819/195734:VERBOSE1:crash_service.cc(283)] checkpoint is crash_checkpoint.txt
+server is http://54.249.141.255:1127/post
+maximum 128 reports/day
+reporter is atom-shell-crash-service
+[8672:5556:0819/195734:VERBOSE1:crash_service_main.cc(83)] Ready to process crash requests
+[8672:7960:0819/195734:VERBOSE1:crash_service.cc(313)] client start. pid = 4368
+[8672:7960:0819/195734:VERBOSE1:crash_service.cc(313)] client start. pid = 7524
+[9184:8592:0819/195735:VERBOSE1:crash_service_main.cc(68)] Session start. cmdline is [--reporter-url=http://54.249.141.255:1127/post --application-name=Atom --v=1]
+[9184:8592:0819/195735:VERBOSE1:crash_service.cc(133)] window handle is 00240530
+[9184:8592:0819/195735:VERBOSE1:crash_service.cc(279)] pipe name is \\.\pipe\Atom Crash Service
+dumps at 
+[9184:8592:0819/195735:VERBOSE1:crash_service.cc(283)] checkpoint is crash_checkpoint.txt
+server is http://54.249.141.255:1127/post
+maximum 128 reports/day
+reporter is atom-shell-crash-service
+[9184:8592:0819/195735:ERROR:crash_service.cc(290)] could not start dumper
+[8672:1532:0819/195852:VERBOSE1:crash_service.cc(321)] client end. pid = 7524
+[8672:1532:0819/195852:VERBOSE1:crash_service.cc(321)] client end. pid = 4368
+[8672:1532:0819/195853:VERBOSE1:crash_service.cc(342)] zero clients. exiting
+[8672:5556:0819/195853:VERBOSE1:crash_service.cc(480)] session ending..
+[8672:5556:0819/195853:VERBOSE1:crash_service.cc(485)] clients connected :2
+clients terminated :2
+dumps serviced :0
+dumps reported :0
+[8672:5556:0819/195853:VERBOSE1:crash_service_main.cc(88)] Session end. return code is 0
