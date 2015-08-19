@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2015 at 11:08 AM
+-- Generation Time: Aug 19, 2015 at 02:16 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `com_menu` (
   `nav_icon` varchar(50) DEFAULT NULL,
   `mdb` int(11) unsigned DEFAULT NULL,
   `mdd` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=588 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=600 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `com_menu`
@@ -57,19 +57,28 @@ INSERT INTO `com_menu` (`nav_id`, `portal_id`, `parent_id`, `nav_title`, `nav_de
 (9, 1, 3, 'Preferences', 'Pengelolaan preferences', 'settings/adminpreferences', 216, '1', '0', NULL, 1, '2011-11-28 13:23:39'),
 (199, 1, 1, 'Admin Profile', '-', 'settings/adminprofile', 1, '1', '0', NULL, 1, '2014-08-06 10:01:31'),
 (574, 2, 0, 'Dashboard', 'Dashboard', 'operator/welcome', 1, '1', '1', 'fa-dashboard', 1, '2015-08-03 09:00:30'),
-(575, 2, 0, 'Penerimaan Siswa Baru', 'Penerimaan Siswa Baru', '#', 2, '1', '1', 'fa-graduation-cap', 1, '2015-08-03 09:03:13'),
 (576, 2, 575, 'Data PSB', 'Data PSB', 'psb/data', 1, '1', '1', NULL, 1, '2015-08-03 09:04:33'),
 (577, 2, 575, 'Pembayaran Pendaftaran', 'Pembayaran Pendaftaran', 'psb/pembayaran', 2, '1', '1', NULL, 1, '2015-08-03 09:05:50'),
 (578, 2, 575, 'Pendaftaran PSB', 'Pendaftaran PSB', 'psb/pendaftaran', 3, '1', '1', NULL, 1, '2015-08-03 09:07:03'),
 (579, 2, 575, 'Seleksi Administrasi', 'Seleksi Administrasi', 'psb/seleksi', 4, '1', '1', NULL, 1, '2015-08-03 09:07:33'),
 (580, 2, 575, 'Pembayaran Her-Registrasi', 'Pembayaran Her-Registrasi', 'psb/herregistrasi', 5, '1', '1', NULL, 1, '2015-08-03 09:08:03'),
 (581, 2, 575, 'Penempatan Siswa Baru', 'Penempatan Siswa Baru', 'psb/penempatan', 6, '1', '1', NULL, 1, '2015-08-03 09:08:30'),
-(582, 2, 0, 'Pengaturan', 'Pengaturan', '#', 10, '1', '1', 'fa-wrench', 1, '2015-08-03 20:20:02'),
-(583, 2, 582, 'Preference', 'Preference', 'pengaturan/preference', 1, '1', '1', NULL, 1, '2015-08-03 20:22:21'),
-(584, 2, 582, 'Operator', 'Operator', 'pengaturan/operator', 2, '1', '1', NULL, 1, '2015-08-03 20:22:57'),
-(585, 2, 0, 'Kurikulum', 'Kurikulum', '#', 3, '1', '1', 'fa-list-alt', 1, '2015-08-10 11:45:34'),
-(586, 2, 0, 'Data Master', 'Data Master', '#', 3, '1', '1', 'fa-database', 1, '2015-08-11 18:37:20'),
-(587, 2, 586, 'Kelas', 'Kelas', 'master/kelas', 1, '1', '1', '', 1, '2015-08-11 18:37:50');
+(582, 2, 0, 'Pengaturan', 'Pengaturan', '#', 14, '1', '1', 'fa-wrench', 1, '2015-08-03 20:20:02'),
+(583, 2, 582, 'Preference', 'Preference', 'pengaturan/preference', 15, '1', '1', '', 1, '2015-08-03 20:22:21'),
+(584, 2, 582, 'Operator', 'Operator', 'pengaturan/operator', 16, '1', '1', '', 1, '2015-08-03 20:22:57'),
+(587, 2, 586, 'Kelas', 'Kelas', 'master/kelas', 1, '1', '1', '', 1, '2015-08-11 18:37:50'),
+(588, 2, 0, 'Indikator', 'Indikator', 'indikator', 4, '1', '1', 'fa-asterisk', 1, '2015-08-17 18:57:26'),
+(589, 2, 588, 'Indikator 1', 'Indikator 1', 'indikator/indikator1', 5, '1', '1', 'fa-angle-double-up', 1, '2015-08-17 18:58:45'),
+(590, 2, 588, 'Indikator 2', 'Indikator 2', 'indikator/indikator2', 6, '1', '1', 'fa-angle-double-up', 1, '2015-08-17 19:02:17'),
+(591, 2, 0, 'Stadium', 'Stadium', 'Stadium', 7, '1', '1', 'fa-building', 1, '2015-08-17 20:24:01'),
+(592, 2, 0, 'Solusi', 'Solusi', 'Solusi', 8, '1', '1', 'fa-arrows', 1, '2015-08-18 14:05:27'),
+(593, 2, 592, 'Solusi 1', 'Solusi 1', 'solusi/solusi1', 9, '1', '1', 'fa-angle-right', 1, '2015-08-18 14:06:54'),
+(594, 2, 592, 'Solusi 2', 'Solusi 2', 'solusi/solusi2', 10, '1', '1', 'fa-angle-right', 1, '2015-08-18 14:07:58'),
+(595, 2, 0, 'Pencegahan', 'Pencegahan', 'pencegahan', 11, '1', '1', 'fa-briefcase', 1, '2015-08-18 14:39:45'),
+(596, 2, 595, 'Pencegahan Primer', 'Pencegahan Primer', 'pencegahan/pencegahanprimer', 12, '1', '1', 'fa-arrow-right', 1, '2015-08-18 14:40:30'),
+(597, 2, 595, 'Pencegahan Khusus', 'Pencegahan Khusus', 'pencegahan/pencegahankhusus', 13, '1', '1', 'fa-arrow-right', 1, '2015-08-18 14:41:04'),
+(598, 2, 0, 'Tentang Aids', 'Tentang Aids', 'tentangaids', 2, '1', '1', 'fa-bitbucket', 1, '2015-08-19 16:46:33'),
+(599, 2, 0, 'Tentang KPA', 'Tentang KPA', 'tentangkpa', 3, '1', '1', 'fa-gear', 1, '2015-08-19 16:49:19');
 
 -- --------------------------------------------------------
 
@@ -94,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `com_portal` (
 
 INSERT INTO `com_portal` (`portal_id`, `portal_nm`, `site_title`, `site_desc`, `meta_desc`, `meta_keyword`, `mdb`, `mdd`) VALUES
 (1, 'Developer Area', 'CiSmart 3.0 Developer Site', '-', '-', '-', 1, '2014-12-27 09:35:59'),
-(2, 'SIAK - Sekolah Menengak Kejuruan', 'SIAK - Sekolah Menengak Kejuruan', 'SIAK - Sekolah Menengak Kejuruan', '-', '-', 1, '2015-08-02 12:02:26');
+(2, 'Sistem Pakar Diagnosa HIV AIDS', 'Sistem Pakar Diagnosa HIV AIDS', 'Sistem Pakar Diagnosa HIV AIDS', '-', '-', 1, '2015-08-17 18:55:58');
 
 -- --------------------------------------------------------
 
@@ -223,19 +232,21 @@ INSERT INTO `com_role_menu` (`role_id`, `nav_id`, `role_tp`) VALUES
 (1, 9, '1111'),
 (1, 199, '1111'),
 (18, 574, '1111'),
-(18, 575, '1111'),
-(18, 576, '1111'),
-(18, 577, '1111'),
-(18, 578, '1111'),
-(18, 579, '1111'),
-(18, 580, '1111'),
-(18, 581, '1111'),
 (18, 582, '1111'),
 (18, 583, '1111'),
 (18, 584, '1111'),
-(18, 585, '1111'),
-(18, 586, '1111'),
-(18, 587, '1111');
+(18, 588, '1111'),
+(18, 589, '1111'),
+(18, 590, '1111'),
+(18, 591, '1111'),
+(18, 592, '1111'),
+(18, 593, '1111'),
+(18, 594, '1111'),
+(18, 595, '1111'),
+(18, 596, '1111'),
+(18, 597, '1111'),
+(18, 598, '1111'),
+(18, 599, '1111');
 
 -- --------------------------------------------------------
 
@@ -282,15 +293,15 @@ CREATE TABLE IF NOT EXISTS `com_user` (
   `operator_nip` varchar(50) DEFAULT NULL,
   `mdb` int(11) unsigned DEFAULT NULL,
   `mdd` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `com_user`
 --
 
 INSERT INTO `com_user` (`user_id`, `user_name`, `user_pass`, `user_key`, `user_mail`, `user_st`, `lock_st`, `operator_name`, `operator_gender`, `operator_birth_place`, `operator_birth_day`, `operator_address`, `operator_phone`, `operator_photo`, `operator_identitas`, `operator_jabatan`, `operator_nip`, `mdb`, `mdd`) VALUES
-(1, 'admin', 'ZkvePV8It4amveYLPIzc47SITuJ3iMuOmcgN8vdFvcjf/HP1qmTj60ZI9sD0ic7C4IW2p+m+6tMtJz2G8+RyIg==', '-112414827', '-', 'admin', '0', 'Welly Widodo Sindu Putra', 'L', 'Nganjuk', '1984-06-06', 'Yogyakarta', '081358290279', NULL, NULL, NULL, NULL, 1, '2014-08-06 10:00:52'),
-(2, 'wellychow', 'HywdMIwSLp9cxWGDdMdazXR8SUanR9yLPFE0RY6k+dpUxG6UJIz7kEsP/JjXo4xo1Eb6/djKq+Ew01UGvAvskA==', '-676943999', 'welly.wsp@excelindo.co.id', 'otoritas', '0', 'Welly Widodo Sindu Putra', 'L', 'NGANJUK', '1984-06-06', 'YOGYAKARTA', '081358290279', '2.jpg', NULL, 'Tukang Kebun', NULL, 1, '2014-11-07 05:24:15');
+(1, 'kartika', 'q2FbpXEkHWIaetk9KnWFMQf2QQv4xVlwU6rYmKYpqGe6V72XUmWa84v5oSnJDe0kNi9PIvDK0F5MX84dEa/JAg==', '1266715895', 'kartika@gmail.com', 'admin', '0', 'Kartika', 'L', 'Nganjuk', '1984-06-06', 'Yogyakarta', '081358290279', NULL, NULL, 'Admin', NULL, 1, '2015-08-17 18:32:38'),
+(2, 'amin', 'a5dGreUQ75z+fOSH/Gpe5yI9lSNWhrSF9bApXe4JNkCsaEQBi4a5OuZpgT0ndzvI+5Ci65Z/9dCmPn3sxivfFw==', '-52130888', 'amin@amin.com', 'otoritas', '0', 'Amin', 'L', 'NGANJUK', '1984-06-06', 'YOGYAKARTA', '081358290279', '2.jpg', NULL, 'IT Support', NULL, 1, '2015-08-17 18:52:24');
 
 -- --------------------------------------------------------
 
@@ -311,13 +322,19 @@ CREATE TABLE IF NOT EXISTS `com_user_login` (
 
 INSERT INTO `com_user_login` (`user_id`, `login_date`, `logout_date`, `ip_address`) VALUES
 (1, '2015-08-10 09:59:08', NULL, '::1'),
+(1, '2015-08-17 18:27:41', '2015-08-17 18:44:39', '::1'),
+(1, '2015-08-18 09:25:12', NULL, '::1'),
+(1, '2015-08-19 16:36:20', NULL, '::1'),
 (2, '2015-08-03 08:58:06', '2015-08-03 20:19:17', '::1'),
 (2, '2015-08-05 17:40:22', '2015-08-05 20:11:58', '::1'),
 (2, '2015-08-07 09:05:54', '2015-08-07 11:30:21', '127.0.0.1'),
 (2, '2015-08-08 08:00:03', '2015-08-08 08:36:04', '127.0.0.1'),
 (2, '2015-08-09 15:45:51', NULL, '::1'),
 (2, '2015-08-10 08:09:25', '2015-08-10 08:11:48', '127.0.0.1'),
-(2, '2015-08-11 14:11:23', NULL, '127.0.0.1');
+(2, '2015-08-11 14:11:23', NULL, '127.0.0.1'),
+(2, '2015-08-17 18:52:35', '2015-08-17 20:56:18', '::1'),
+(2, '2015-08-18 09:20:50', '2015-08-18 14:37:22', '::1'),
+(2, '2015-08-19 16:36:16', NULL, '::1');
 
 -- --------------------------------------------------------
 
@@ -401,18 +418,6 @@ INSERT INTO `indikator2` (`kode_indikator2`, `ket_indikator2`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemakai`
---
-
-CREATE TABLE IF NOT EXISTS `pemakai` (
-  `kode_pemakai` varchar(5) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `jenis_kelamin` enum('P','W') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `pencegahankhusus`
 --
 
@@ -492,13 +497,21 @@ INSERT INTO `stadium` (`kode_stadium`, `nama_stadium`, `ket_stadium`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tahap`
+-- Table structure for table `tentangaids`
 --
 
-CREATE TABLE IF NOT EXISTS `tahap` (
-  `kode_tahap` int(5) NOT NULL,
-  `nama_tahap` int(50) NOT NULL,
-  `ket_tahap` int(50) NOT NULL
+CREATE TABLE IF NOT EXISTS `tentangaids` (
+  `tentang_aids` varchar(5000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tentangkpa`
+--
+
+CREATE TABLE IF NOT EXISTS `tentangkpa` (
+  `tentang_kpa` varchar(5000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -605,12 +618,6 @@ ALTER TABLE `indikator2`
   ADD PRIMARY KEY (`kode_indikator2`);
 
 --
--- Indexes for table `pemakai`
---
-ALTER TABLE `pemakai`
-  ADD PRIMARY KEY (`kode_pemakai`);
-
---
 -- Indexes for table `pencegahankhusus`
 --
 ALTER TABLE `pencegahankhusus`
@@ -641,12 +648,6 @@ ALTER TABLE `stadium`
   ADD PRIMARY KEY (`kode_stadium`);
 
 --
--- Indexes for table `tahap`
---
-ALTER TABLE `tahap`
-  ADD PRIMARY KEY (`kode_tahap`);
-
---
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -660,7 +661,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `com_menu`
 --
 ALTER TABLE `com_menu`
-  MODIFY `nav_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=588;
+  MODIFY `nav_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=600;
 --
 -- AUTO_INCREMENT for table `com_portal`
 --
@@ -680,7 +681,7 @@ ALTER TABLE `com_role`
 -- AUTO_INCREMENT for table `com_user`
 --
 ALTER TABLE `com_user`
-  MODIFY `user_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `indikator1`
 --
