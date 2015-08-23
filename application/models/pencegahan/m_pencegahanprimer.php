@@ -32,8 +32,7 @@ class m_pencegahanprimer extends CI_Model{
 	}
 
 	function insert_pencegahanprimer( $params ){
-		$sql = "INSERT INTO pencegahanprimer (konsep_abcd, pencegahan_primer) VALUES(?,?)";
-		return $this->db->query($sql, $params);
+		return $this->db->insert('pencegahanprimer', $params);
 	}
 
 	function update_stadium( $params ){

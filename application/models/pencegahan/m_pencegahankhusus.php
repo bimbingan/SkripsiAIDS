@@ -32,8 +32,7 @@ class m_pencegahankhusus extends CI_Model{
 	}
 
 	function insert_pencegahankhusus( $params ){
-		$sql = "INSERT INTO pencegahankhusus (pencegahan_khusus) VALUES(?)";
-		return $this->db->query($sql, $params);
+		return $this->db->insert('pencegahankhusus', $params);
 	}
 
 	function update_indikator1( $params ){

@@ -32,8 +32,7 @@ class m_stadium extends CI_Model{
 	}
 
 	function insert_stadium( $params ){
-		$sql = "INSERT INTO stadium (nama_stadium, ket_stadium) VALUES(?,?)";
-		return $this->db->query($sql, $params);
+		return $this->db->insert('stadium', $params);
 	}
 
 	function update_stadium( $params ){

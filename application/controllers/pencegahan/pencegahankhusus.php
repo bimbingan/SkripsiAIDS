@@ -42,6 +42,51 @@ class pencegahankhusus extends ApplicationBase{
 	}
 
 	function add(){
+                $this->_set_page_rule("C");
+      $this->smarty->assign("template_content", "pencegahan/pencegahankhusus/add.html");
+
+
+      // notification
+        $this->tnotification->display_notification();
+        $this->tnotification->display_last_field();
+        // output
+        parent::display();
+    }
+
+
+    function process_add(){
+        $this->_set_page_rule("C");
+
+        $this->tnotification->set_rules('kode_pencegahankhusus', 'Kode', 'trim|required|max_length[5]');
+         $this->tnotification->set_rules('pencegahan_khusus', 'Pencegahan', 'trim|required|max_length[350]');
+
+
+        if($this->tnotification->run() !== FALSE){
+            $params = array(
+                'kode_pencegahankhusus' => $this->input->post('kode_pencegahankhusus'), 
+                'pencegahan_khusus' => $this->input->post('pencegahan_khusus')
+            );
+            echo "<pre>";
+            print_r($params);
+            
+            if($this->m_pencegahankhusus->insert_pencegahankhusus($params)){
+                
+                 // success
+                $this->tnotification->delete_last_field();
+                $this->tnotification->sent_notification("success", "Data berhasil disimpan");
+            }else{
+
+                // default error
+                $this->tnotification->sent_notification("error", "Data gagal disimpan");
+            }
+
+        }else{
+            // default error
+            $this->tnotification->sent_notification("error", "Data gagal disimpan");
+        }
+
+
+        redirect("pencegahan/pencegahankhusus/add");
 		
 	}
 

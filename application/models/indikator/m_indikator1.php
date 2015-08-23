@@ -32,8 +32,7 @@ class m_indikator1 extends CI_Model{
 	}
 
 	function insert_indikator1( $params ){
-		$sql = "INSERT INTO indikator1 (ket_indikator1) VALUES(?)";
-		return $this->db->query($sql, $params);
+		return $this->db->insert('indikator1', $params);
 	}
 
 	function update_indikator1( $params ){

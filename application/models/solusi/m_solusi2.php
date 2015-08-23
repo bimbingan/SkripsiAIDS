@@ -32,8 +32,7 @@ class m_solusi2 extends CI_Model{
 	}
 
 	function insert_solusi2( $params ){
-		$sql = "INSERT INTO solusi2 (ket_solusi2) VALUES(?)";
-		return $this->db->query($sql, $params);
+		return $this->db->insert('solusi2', $params);
 	}
 
 	function update_solusi2( $params ){
