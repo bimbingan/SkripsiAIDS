@@ -32,7 +32,13 @@ class ApplicationBase extends CI_Controller {
         $this->load->library("datetimemanipulation");
         $this->smarty->assign("dtm", $this->datetimemanipulation);
         // load javascript
-        $this->smarty->load_javascript("resource/js/jquery/jquery-1.10.2.min.js");
+        $this->smarty->load_javascript("resource/js/munter/html5shiv.js");
+        $this->smarty->load_javascript("resource/js/munter/jquery-1.10.2.min.js");
+        $this->smarty->load_javascript("resource/js/munter/jquery-migrate-1.2.1.min.js");
+        $this->smarty->load_javascript("resource/js/munter/bootstrap.min.js");
+        $this->smarty->load_javascript("resource/js/munter/jquery.easing.1.3.js");
+        $this->smarty->load_javascript("resource/js/munter/jquery.fancybox.pack-v=2.1.5.js");
+        $this->smarty->load_javascript("resource/js/munter/script.js");
         // load style
     }
 
@@ -50,7 +56,7 @@ class ApplicationBase extends CI_Controller {
         //     $this->com_user = $this->m_account->get_user_profil(array($session['user_id'], 1));
         //     $this->smarty->assign("com_user", $this->com_user);
         // }
-        
+
         // tanggal
         $now = $this->datetimemanipulation->get_date_indonesia(date("Y-m-d"), 'in');
         $date_now = $now['hari'] . ", " . $now['tanggal'] . " " . $now['bulan'] . " " . $now['tahun'];
@@ -86,7 +92,7 @@ class ApplicationBase extends CI_Controller {
     // prefix ( _ )
     // base link
     private function _display_base_link() {
-        
+
     }
 
     // site title
