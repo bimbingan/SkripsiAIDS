@@ -23,7 +23,7 @@ class ApplicationBase extends CI_Controller {
 
     protected function base_load_app() {
         // load themes (themes default : default)
-        $this->smarty->load_themes("login");
+        $this->smarty->load_themes("operator");
         // load base models
         // load javascript
         // load style

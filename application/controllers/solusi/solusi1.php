@@ -90,5 +90,69 @@ class solusi1 extends ApplicationBase{
 		
 	}
 
+    function edit($params){
+        $this->_set_page_rule("U");
+        $this->smarty->assign("template_content", "solusi/solusi1/edit.html");
+
+        $solusi1 = $this->m_solusi1->get_one_solusi1($params);
+        $this->smarty->assign("result", $solusi1);
+
+        // notification
+        $this->tnotification->display_notification();
+        $this->tnotification->display_last_field();
+        // output
+        parent::display();
+    }
+
+     function process_edit(){
+        $this->_set_page_rule("U");
+
+        $this->tnotification->set_rules('kode_solusi1', 'Kode', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('ket_solusi1', 'Keterangan', 'trim|required|max_length[350]');
+
+
+        if($this->tnotification->run() !== FALSE){
+            $params = array(
+                'ket_solusi1' => $this->input->post('ket_solusi1')
+            );
+
+            $where = array(
+                'kode_solusi1' => $this->input->post('kode_solusi1')
+            );
+            
+            if($this->m_solusi1->update_solusi1($params)){
+                
+                 // success
+                $this->tnotification->delete_last_field();
+                $this->tnotification->sent_notification("success", "Data berhasil disimpan");
+            }else{
+
+                // default error
+                $this->tnotification->sent_notification("error", "Data gagal disimpan");
+            }
+
+        }else{
+            // default error
+            $this->tnotification->sent_notification("error", "Data gagal disimpan");
+        }
+
+
+        redirect("solusi/solusi1/edit/". $this->input->post('kode_solusi1'));
+    }
+
+    function delete($params){
+        $this->_set_page_rule("D");
+
+        if($this->m_solusi1->delete_solusi1($params)){
+              // success
+                $this->tnotification->delete_last_field();
+                $this->tnotification->sent_notification("success", "Data berhasil dihapus");
+        }else{
+            $this->tnotification->sent_notification("error", "Data gagal dihapus");
+
+        }
+        redirect("solusi/solusi1/");
+    }
+
 
 }

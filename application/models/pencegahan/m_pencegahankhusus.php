@@ -35,9 +35,8 @@ class m_pencegahankhusus extends CI_Model{
 		return $this->db->insert('pencegahankhusus', $params);
 	}
 
-	function update_indikator1( $params ){
-		$sql = "UPDATE pencegahankhusus SET pencegahan_khusus = ? WHERE kode_pencegahankhusus = ?";
-		return $this->db->query($sql, $params);
+	function update_pencegahankhusus( $params, $where ){
+		return $this->db->update('pencegahankhusus', $params, $where);
 	}
 
 	function delete_pencegahankhusus( $params ){

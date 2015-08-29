@@ -46,6 +46,7 @@
                     <tr>
                        	<th>Kode Pencegahan Khusus</th>
 						<th>Pencegahan Khusus</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,6 +55,11 @@
 						
 							<td>{$result.kode_pencegahankhusus}</td>
 							<td>{$result.pencegahan_khusus}</td>
+                            <td>
+                                <a href="{$config->site_url('pencegahan/pencegahankhusus/edit')}/{$result.kode_pencegahankhusus}" class="btn btn-sm btn-primary" title="">Edit</a>
+                                <a href="{$config->site_url('pencegahan/pencegahankhusus/delete')}/{$result.kode_pencegahankhusus}" class="btn btn-sm btn-danger" title="">Delete</a>
+
+                            </td>
 						
 						</tr>
 					{/foreach}

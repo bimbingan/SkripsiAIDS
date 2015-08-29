@@ -92,5 +92,71 @@ class solusi2 extends ApplicationBase{
 		
 	}
 
+    function edit($params){
+        $this->_set_page_rule("U");
+        $this->smarty->assign("template_content", "solusi/solusi2/edit.html");
+
+        $solusi2 = $this->m_solusi2->get_one_solusi2($params);
+        $this->smarty->assign("result", $solusi2);
+
+        // notification
+        $this->tnotification->display_notification();
+        $this->tnotification->display_last_field();
+        // output
+        parent::display();
+    }
+
+     function process_edit(){
+        $this->_set_page_rule("U");
+
+        $this->tnotification->set_rules('kode_solusi2', 'Kode', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('nama_stadium', 'Nama Stadium', 'trim|required|max_length[20]');
+        $this->tnotification->set_rules('ket_solusi2', 'Keterangan', 'trim|required|max_length[350]');
+
+
+        if($this->tnotification->run() !== FALSE){
+            $params = array(
+                'ket_solusi2' => $this->input->post('ket_solusi2'),
+                'nama_stadium' => $this->input->post('nama_stadium')
+            );
+
+            $where = array(
+                'kode_solusi2' => $this->input->post('kode_solusi2')
+            );
+            
+            if($this->m_solusi2->update_solusi2($params, $where)){
+                
+                 // success
+                $this->tnotification->delete_last_field();
+                $this->tnotification->sent_notification("success", "Data berhasil disimpan");
+            }else{
+
+                // default error
+                $this->tnotification->sent_notification("error", "Data gagal disimpan");
+            }
+
+        }else{
+            // default error
+            $this->tnotification->sent_notification("error", "Data gagal disimpan");
+        }
+
+
+        redirect("solusi/solusi2/edit/". $this->input->post('kode_solusi2'));
+    }
+
+    function delete($params){
+        $this->_set_page_rule("D");
+
+        if($this->m_solusi2->delete_solusi2($params)){
+              // success
+                $this->tnotification->delete_last_field();
+                $this->tnotification->sent_notification("success", "Data berhasil dihapus");
+        }else{
+            $this->tnotification->sent_notification("error", "Data gagal dihapus");
+
+        }
+        redirect("solusi/solusi2/");
+    }
+
 
 }

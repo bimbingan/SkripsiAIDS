@@ -1,14 +1,14 @@
 <section class="content-header">
-    <h1>Tentang KPA</h1>
+    <h1>Pencegahan Primer</h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-th"></i> Tentang KPA</a></li>
-        <li><a href="#">Tentang KPA</a></li>
+        <li><a href="#"><i class="fa fa-th"></i> Pencegahan</a></li>
+        <li><a href="#">Pencegahan Primer</a></li>
     </ol>
 </section>
 <section class="content">
-  <!--   {* <div class="box box-primary">
+   <!--  {* <div class="box box-primary">
        <div class="box-header with-border">
-           <h3 class="box-title">Seputar KPA</h3>
+           <h3 class="box-title">Data Pencegahan</h3>
        </div>/.box-header
        form start
        <div class="box-body">
@@ -33,19 +33,35 @@
     <!-- notification template -->
     {include file="base/templates/notification.html"}
     <!-- end of notification template-->
-    <div class="box">
+    <div class="box box-success">
         <div class="box-header with-border">
-            <h5 class="box-title">Seputar KPA<small></small></h5>
+            <h5 class="box-title">Data Pencegahan Primer<small></small></h5>
+            <div class="box-tools">
+                <a href="{$config->site_url('pencegahan/pencegahanprimer/')}" class="btn btn-success btn-sm"><i class="fa fa-arrow-left"></i>&nbsp; Kembali</a>
+            </div>
         </div>
         <div class="box-body">
-            <form class="form-horizontal" action="{$config->site_url('tentangkpa/process_edit')}" method="post">
-                <input type="hidden" name="kpa_id" value="{$result.pref_id}">
+           
+
+             <form class="form-horizontal" action="{$config->site_url('pencegahan/pencegahanprimer/process_edit')}" method="post">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="nama" class="col-sm-2 control-label">Deskripsi Tentang KPA</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control" rows="8" name="tentangkpa">{$result.pref_value}</textarea>
+                            <label for="nama" class="col-sm-2 control-label">Kode</label>
+                           <div class="col-sm-5">
+                                <input type="text" class="form-control" readonly="" value="{$result.kode_pencegahanprimer}" name="kode_pencegahanprimer" placeholder="-- semua --">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nama" class="col-sm-2 control-label">Konsep</label>
+                           <div class="col-sm-10">
+                                <input type="text" class="form-control"value="{$result.konsep_abcd}" name="konsep_abcd" placeholder="-- semua --">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nama" class="col-sm-2 control-label">Pencegahan</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control"value="{$result.pencegahan_primer}" name="pencegahan_primer" placeholder="-- semua --">
                             </div>
                         </div>
                     </div>
@@ -57,6 +73,9 @@
                     </div>
                 </div>
             </form>
+
+
+
         </div>
        <!--  {* <div class="box-footer clearfix">
             <div class="col-sm-6">

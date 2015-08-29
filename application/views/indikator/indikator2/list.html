@@ -44,19 +44,25 @@
             <table id="example2" class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                       	<th>Kode Indikator</th>
-						<th>Keterangan</th>
+                        <th>Kode Indikator</th>
+                        <th>Keterangan</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {foreach $rs_id as $result}
-						<tr> 
-						
-							<td>{$result.kode_indikator2}</td>
-							<td>{$result.ket_indikator2}</td>
-						
-						</tr>
-					{/foreach}
+                        <tr> 
+                        
+                            <td>{$result.kode_indikator2}</td>
+                            <td>{$result.ket_indikator2}</td>
+                            <td>
+                                <a href="{$config->site_url('indikator/indikator2/edit')}/{$result.kode_indikator2}" class="btn btn-sm btn-primary" title="">Edit</a>
+                                <a href="{$config->site_url('indikator/indikator2/delete')}/{$result.kode_indikator2}" class="btn btn-sm btn-danger" title="">Delete</a>
+
+                            </td>
+                        
+                        </tr>
+                    {/foreach}
                 </tbody>
             </table>
         </div>

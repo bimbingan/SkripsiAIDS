@@ -1,13 +1,13 @@
-<?php 
+<?php
 
-class m_stadium extends CI_Model{
-	
+class m_vctcst extends CI_Model{
+
 	function __construct(){
 		parent::__construct();
 	}
 
-	function get_all_stadium(){
-		$sql = "SELECT * FROM stadium"; 	// perintah sql berbentuk string
+	function get_all_vctcst(){
+		$sql = "SELECT * FROM vctcst"; 	// perintah sql berbentuk string
 		$query = $this->db->query($sql); 	// perintah sql dieksekusi kemudian disimpan di dalam var query
 		if($query->num_rows() > 0){			// query dicek apakah ada isinya atau tidak
 			$result = $query->result_array();	// hasil dari query dipindahkan ke var result dengan menggunakan fungsi result_array (mempunyai baris banyak)
@@ -19,8 +19,8 @@ class m_stadium extends CI_Model{
 	}
 
 
-	function get_one_stadium( $id ){
-		$sql = "SELECT * FROM stadium WHERE kode_stadium = ?"; 	// perintah sql berbentuk string
+	function get_one_vctcst( $id ){
+		$sql = "SELECT * FROM vctcst WHERE tentang_vctcst = ?"; 	// perintah sql berbentuk string
 		$query = $this->db->query( $sql , $id); 	// perintah sql dieksekusi kemudian disimpan di dalam var query
 		if($query->num_rows() > 0){			// query dicek apakah ada isinya atau tidak
 			$result = $query->row_array();	// hasil dari query dipindahkan ke var result dengan menggunakan fungsi result_array (mempunyai baris banyak)
@@ -31,16 +31,18 @@ class m_stadium extends CI_Model{
 		}
 	}
 
-	function insert_stadium( $params ){
-		return $this->db->insert('stadium', $params);
+	function insert_vctcst( $params ){
+		$sql = "INSERT INTO vctcst (tentang_vctcst) VALUES(?)";
+		return $this->db->query($sql, $params);
 	}
 
-	function update_stadium( $params, $where ){
-		return $this->db->update('stadium', $params, $where);
+	function update_vctcst( $params ){
+		$sql = "UPDATE vctcst SET tentang_vctcst = ?";
+		return $this->db->query($sql, $params);
 	}
 
-	function delete_stadium( $params ){
-		$sql = "DELETE FROM stadium WHERE kode_stadium = ?";
+	function delete_vctcst( $params ){
+		$sql = "DELETE FROM vctcst WHERE vctcst = ?";
 		return $this->db->query($sql, $params);
 	}
 }

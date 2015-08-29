@@ -46,6 +46,7 @@
                     <tr>
                        	<th>Kode Solusi 1</th>
 						<th>Keterangan Solusi 1</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,6 +55,11 @@
 						
 							<td>{$result.kode_solusi1}</td>
 							<td>{$result.ket_solusi1}</td>
+                            <td>
+                                <a href="{$config->site_url('solusi/solusi1/edit')}/{$result.kode_solusi1}" class="btn btn-sm btn-primary" title="">Edit</a>
+                                <a href="{$config->site_url('solusi/solusi1/delete')}/{$result.kode_solusi1}" class="btn btn-sm btn-danger" title="">Delete</a>
+
+                            </td>
 						
 						</tr>
 					{/foreach}

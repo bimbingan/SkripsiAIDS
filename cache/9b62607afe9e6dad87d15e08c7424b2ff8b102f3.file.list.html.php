@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2015-08-23 05:22:54
+<?php /* Smarty version Smarty-3.0.7, created on 2015-08-25 15:57:12
          compiled from "application/views\tentangaids/list.html" */ ?>
-<?php /*%%SmartyHeaderCode:3156955d93c8ebf2b25-71980829%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2198455dc74388d6ae6-33105190%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9b62607afe9e6dad87d15e08c7424b2ff8b102f3' => 
     array (
       0 => 'application/views\\tentangaids/list.html',
-      1 => 1439979828,
+      1 => 1440511024,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3156955d93c8ebf2b25-71980829',
+  'nocache_hash' => '2198455dc74388d6ae6-33105190',
   'function' => 
   array (
   ),
@@ -32,32 +32,30 @@ $_smarty_tpl->decodeProperties(array (
     <div class="box">
         <div class="box-header with-border">
             <h5 class="box-title">Seputar Aids<small></small></h5>
-            <div class="box-tools">
-                <a href="<?php echo $_smarty_tpl->getVariable('config')->value->site_url('tentangaids/add');?>
-" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>&nbsp; Tambah</a>
-            </div>
         </div>
         <div class="box-body">
-            <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-						<th>Tentang Aids</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php  $_smarty_tpl->tpl_vars['result'] = new Smarty_Variable;
- $_from = $_smarty_tpl->getVariable('rs_id')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-if ($_smarty_tpl->_count($_from) > 0){
-    foreach ($_from as $_smarty_tpl->tpl_vars['result']->key => $_smarty_tpl->tpl_vars['result']->value){
-?>
-						<tr> 
-							<td><?php echo $_smarty_tpl->tpl_vars['result']->value['tentang_aids'];?>
-</td>
-						
-						</tr>
-					<?php }} ?>
-                </tbody>
-            </table>
+            <form class="form-horizontal" action="<?php echo $_smarty_tpl->getVariable('config')->value->site_url('tentangaids/process_edit');?>
+" method="post">
+                <input type="hidden" name="aids_id" value="<?php echo $_smarty_tpl->getVariable('result')->value['pref_id'];?>
+">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="nama" class="col-sm-2 control-label">Deskripsi Tentang AIDS</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" rows="8" name="tentangaids"><?php echo $_smarty_tpl->getVariable('result')->value['pref_value'];?>
+</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2 pull-right action-right">
+                        <input class="btn btn-primary " name="save" type="submit" value="Simpan">
+                        <input class="btn btn-danger" name="save" type="reset" value="Reset">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </section>

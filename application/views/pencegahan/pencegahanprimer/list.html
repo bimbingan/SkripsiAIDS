@@ -47,6 +47,7 @@
                        	<th>Kode Pencegahan Primer</th>
                         <th>Konsep ABCD</th>
 						<th>Pencegahan Primer</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,6 +57,11 @@
 							<td>{$result.kode_pencegahanprimer}</td>
                             <td>{$result.konsep_abcd}</td>
 							<td>{$result.pencegahan_primer}</td>
+                            <td>
+                                <a href="{$config->site_url('pencegahan/pencegahanprimer/edit')}/{$result.kode_pencegahanprimer}" class="btn btn-sm btn-primary" title="">Edit</a>
+                                <a href="{$config->site_url('pencegahan/pencegahanprimer/delete')}/{$result.kode_pencegahanprimer}" class="btn btn-sm btn-danger" title="">Delete</a>
+
+                            </td>
 						
 						</tr>
 					{/foreach}

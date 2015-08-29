@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2015-08-19 15:44:08
+<?php /* Smarty version Smarty-3.0.7, created on 2015-08-28 15:30:13
          compiled from "application/views\base/operator/document.html" */ ?>
-<?php /*%%SmartyHeaderCode:1961255d48828eb5182-92020090%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:858755e0626512a261-96008180%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '5c595cb31bddbc5c751a10c85e0614e381b7a434' => 
     array (
       0 => 'application/views\\base/operator/document.html',
-      1 => 1439386561,
+      1 => 1440768611,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1961255d48828eb5182-92020090',
+  'nocache_hash' => '858755e0626512a261-96008180',
   'function' => 
   array (
   ),
@@ -108,7 +108,7 @@ $_smarty_tpl->decodeProperties(array (
                 <div class="user-panel">
                     <div class="image">
                         <img width="500px" src="<?php echo $_smarty_tpl->getVariable('BASEURL')->value;?>
-/resource/img/icon/logo.png" alt="Logo">
+/resource/img/icon/logo.jpg" alt="Logo">
                     </div>
                 </div>
                 <!-- search form -->
@@ -132,8 +132,8 @@ $_smarty_tpl->decodeProperties(array (
  echo $_template->getRenderedTemplate();?><?php unset($_template);?>
         </div>
         <footer class="main-footer">
-            Copyright &copy;2015 SMA Negeri 1 Bojong <br/>
-            sma_bojong@yahoo.com
+            Copyright &copy;2015 Komisi Penanggulangan AIDS Klaten <br/>
+            kpakabklaten@yahoo.co.id
         </footer>
     </div>
 

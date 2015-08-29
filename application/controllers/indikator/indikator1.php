@@ -66,8 +66,6 @@ class indikator1 extends ApplicationBase{
                 'kode_indikator1' => $this->input->post('kode_indikator1'), 
                 'ket_indikator1' => $this->input->post('ket_indikator1')
             );
-            echo "<pre>";
-            print_r($params);
             
             if($this->m_indikator1->insert_indikator1($params)){
                 
@@ -87,6 +85,73 @@ class indikator1 extends ApplicationBase{
 
 
         redirect("indikator/indikator1/add");
-    }   
+    } 
+
+
+    function edit($params){
+        $this->_set_page_rule("U");
+        $this->smarty->assign("template_content", "indikator/indikator1/edit.html");
+
+        $indikator1 = $this->m_indikator1->get_one_indikator1($params);
+        $this->smarty->assign("result", $indikator1);
+
+        // notification
+        $this->tnotification->display_notification();
+        $this->tnotification->display_last_field();
+        // output
+        parent::display();
+    }
+
+     function process_edit(){
+        $this->_set_page_rule("U");
+
+        $this->tnotification->set_rules('kode_indikator1', 'Kode', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('ket_indikator1', 'Keterangan', 'trim|required|max_length[200]');
+
+
+        if($this->tnotification->run() !== FALSE){
+            $params = array(
+                'ket_indikator1' => $this->input->post('ket_indikator1')
+            );
+
+            $where = array(
+                'kode_indikator1' => $this->input->post('kode_indikator1')
+            );
+            
+            if($this->m_indikator1->update_indikator1($params, $where)){
+                
+                 // success
+                $this->tnotification->delete_last_field();
+                $this->tnotification->sent_notification("success", "Data berhasil disimpan");
+            }else{
+
+                // default error
+                $this->tnotification->sent_notification("error", "Data gagal disimpan");
+            }
+
+        }else{
+            // default error
+            $this->tnotification->sent_notification("error", "Data gagal disimpan");
+        }
+
+
+        redirect("indikator/indikator1/edit/". $this->input->post('kode_indikator1'));
+    }
+
+    function delete($params){
+        $this->_set_page_rule("D");
+
+        if($this->m_indikator1->delete_indikator1($params, $where)){
+              // success
+                $this->tnotification->delete_last_field();
+                $this->tnotification->sent_notification("success", "Data berhasil dihapus");
+        }else{
+            $this->tnotification->sent_notification("error", "Data gagal dihapus");
+
+        }
+        redirect("indikator/indikator1/");
+    }
+
+
 
 }

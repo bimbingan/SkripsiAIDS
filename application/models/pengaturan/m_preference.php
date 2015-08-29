@@ -116,9 +116,9 @@ class m_preference extends CI_Model {
         return $this->db->query($sql, $params);
     }
 
-    function update_preference($params) {
-        $sql = "UPDATE com_preferences SET pref_group=?, pref_nm = ?, pref_value = ?, mdb = ?, mdd = NOW() WHERE pref_id = ?";
-        return $this->db->query($sql, $params);
+    function update_preference($params, $where) {
+       return $this->db->update('com_preferences', $params, $where);
+
     }
 
     function delete_preference($params) {

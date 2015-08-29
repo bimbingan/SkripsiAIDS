@@ -35,12 +35,11 @@ class m_pencegahanprimer extends CI_Model{
 		return $this->db->insert('pencegahanprimer', $params);
 	}
 
-	function update_stadium( $params ){
-		$sql = "UPDATE pencegahanprimer SET konsep_abcd = ?, pencegahan_primer = ? WHERE kode_pencegahanprimer = ?";
-		return $this->db->query($sql, $params);
+	function update_pencegahanprimer( $params, $where ){
+		return $this->db->update('pencegahanprimer', $params, $where);
 	}
 
-	function delete_stadium( $params ){
+	function delete_pencegahanprimer( $params ){
 		$sql = "DELETE FROM pencegahanprimer WHERE kode_pencegahanprimer = ?";
 		return $this->db->query($sql, $params);
 	}

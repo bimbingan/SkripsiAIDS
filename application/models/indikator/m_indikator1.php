@@ -35,9 +35,8 @@ class m_indikator1 extends CI_Model{
 		return $this->db->insert('indikator1', $params);
 	}
 
-	function update_indikator1( $params ){
-		$sql = "UPDATE indikator1 SET ket_indikator1 = ? WHERE kode_indikator1 = ?";
-		return $this->db->query($sql, $params);
+	function update_indikator1( $params, $where ){
+		return $this->db->update('indikator1', $params, $where);
 	}
 
 	function delete_indikator1( $params ){

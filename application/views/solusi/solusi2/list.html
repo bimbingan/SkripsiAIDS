@@ -47,6 +47,7 @@
                        	<th>Kode Solusi 2</th>
                         <th>Nama Stadium</th>
 						<th>Keterangan Solusi 2</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,6 +57,11 @@
 							<td>{$result.kode_solusi2}</td>
                             <td>{$result.nama_stadium}</td>
 							<td>{$result.ket_solusi2}</td>
+                            <td>
+                                <a href="{$config->site_url('solusi/solusi2/edit')}/{$result.kode_solusi2}" class="btn btn-sm btn-primary" title="">Edit</a>
+                                <a href="{$config->site_url('solusi/solusi2/delete')}/{$result.kode_solusi2}" class="btn btn-sm btn-danger" title="">Delete</a>
+
+                            </td>
 						
 						</tr>
 					{/foreach}

@@ -90,4 +90,69 @@ class indikator2 extends ApplicationBase{
 	}
 
 
+     function edit($params){
+        $this->_set_page_rule("U");
+        $this->smarty->assign("template_content", "indikator/indikator2/edit.html");
+
+        $indikator2 = $this->m_indikator2->get_one_indikator2($params);
+        $this->smarty->assign("result", $indikator2);
+
+        // notification
+        $this->tnotification->display_notification();
+        $this->tnotification->display_last_field();
+        // output
+        parent::display();
+    }
+
+     function process_edit(){
+        $this->_set_page_rule("U");
+
+        $this->tnotification->set_rules('kode_indikator2', 'Kode', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('ket_indikator2', 'Keterangan', 'trim|required|max_length[200]');
+
+
+        if($this->tnotification->run() !== FALSE){
+            $params = array(
+                'ket_indikator2' => $this->input->post('ket_indikator2')
+            );
+
+            $where = array(
+                'kode_indikator2' => $this->input->post('kode_indikator2')
+            );
+            
+            if($this->m_indikator2->update_indikator2($params)){
+                
+                 // success
+                $this->tnotification->delete_last_field();
+                $this->tnotification->sent_notification("success", "Data berhasil disimpan");
+            }else{
+
+                // default error
+                $this->tnotification->sent_notification("error", "Data gagal disimpan");
+            }
+
+        }else{
+            // default error
+            $this->tnotification->sent_notification("error", "Data gagal disimpan");
+        }
+
+
+        redirect("indikator/indikator2/edit/". $this->input->post('kode_indikator2'));
+    }
+
+    function delete($params){
+        $this->_set_page_rule("D");
+
+        if($this->m_indikator2->delete_indikator2($params)){
+              // success
+                $this->tnotification->delete_last_field();
+                $this->tnotification->sent_notification("success", "Data berhasil dihapus");
+        }else{
+            $this->tnotification->sent_notification("error", "Data gagal dihapus");
+
+        }
+        redirect("indikator/indikator2/");
+    }
+
+
 }

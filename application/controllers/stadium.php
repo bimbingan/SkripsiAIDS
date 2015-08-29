@@ -42,7 +42,6 @@ class stadium extends ApplicationBase{
 	}
 
 	function add(){
-		 $this->_set_page_rule("C");
       $this->smarty->assign("template_content", "stadium/add.html");
 
 
@@ -90,6 +89,73 @@ class stadium extends ApplicationBase{
 
         redirect("stadium/add");
 	}
+
+    function edit($params){
+        $this->_set_page_rule("U");
+        $this->smarty->assign("template_content", "stadium/edit.html");
+
+        $stadium = $this->m_stadium->get_one_stadium($params);
+        $this->smarty->assign("result", $stadium);
+
+        // notification
+        $this->tnotification->display_notification();
+        $this->tnotification->display_last_field();
+        // output
+        parent::display();
+    }
+
+     function process_edit(){
+        $this->_set_page_rule("U");
+
+        $this->tnotification->set_rules('kode_stadium', 'Kode', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('nama_stadium', 'Nama Stadium', 'trim|required|max_length[30]');
+        $this->tnotification->set_rules('ket_stadium', 'Keterangan', 'trim|required|max_length[400]');
+
+
+        if($this->tnotification->run() !== FALSE){
+            $params = array(
+                'ket_stadium' => $this->input->post('ket_stadium'),
+                'nama_stadium' => $this->input->post('nama_stadium')
+            );
+
+            $where = array(
+                'kode_stadium' => $this->input->post('kode_stadium')
+            );
+            
+            if($this->m_stadium->update_stadium($params, $where)){
+                
+                 // success
+                $this->tnotification->delete_last_field();
+                $this->tnotification->sent_notification("success", "Data berhasil disimpan");
+            }else{
+
+                // default error
+                $this->tnotification->sent_notification("error", "Data gagal disimpan");
+            }
+
+        }else{
+            // default error
+            $this->tnotification->sent_notification("error", "Data gagal disimpan");
+        }
+
+
+        redirect("stadium/edit/". $this->input->post('kode_stadium'));
+    }
+
+    function delete($params){
+        $this->_set_page_rule("D");
+
+        if($this->m_stadium->delete_stadium($params)){
+              // success
+                $this->tnotification->delete_last_field();
+                $this->tnotification->sent_notification("success", "Data berhasil dihapus");
+        }else{
+            $this->tnotification->sent_notification("error", "Data gagal dihapus");
+
+        }
+        redirect("stadium/");
+    }
+
 
 
 }

@@ -34,10 +34,8 @@ class m_solusi1 extends CI_Model{
 	function insert_solusi1( $params ){
 		return $this->db->insert('solusi1', $params);
 	}
-
-	function update_solusi1( $params ){
-		$sql = "UPDATE solusi1 SET ket_solusi1 = ? WHERE kode_solusi1 = ?";
-		return $this->db->query($sql, $params);
+	function update_solusi1( $params, $where ){
+		return $this->db->update('solusi1', $params, $where);
 	}
 
 	function delete_solusi1( $params ){

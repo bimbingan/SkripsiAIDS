@@ -10,7 +10,7 @@ class tentangaids extends ApplicationBase{
 	function __construct(){
 		parent::__construct();
 		// load model
-        $this->load->model('tentangaids/m_tentangaids');
+        $this->load->model('pengaturan/m_preference');
         // load library
         $this->load->library('tnotification');
         // load library
@@ -28,8 +28,9 @@ class tentangaids extends ApplicationBase{
 
 
         /* PART 3 : load data from database */
-        $tentangaids = $this->m_tentangaids->get_all_tentangaids();
-        $this->smarty->assign("rs_id", $tentangaids); // view list.html akan mengenali data indikator1 dengan nama rs_id
+        $result = $this->m_preference->get_preference_by_id("81");
+        
+        $this->smarty->assign("result", $result); // view list.html akan mengenali data indikator1 dengan nama rs_id
 
         /* PART 4 : notifikasi dan display view */
 
@@ -41,9 +42,36 @@ class tentangaids extends ApplicationBase{
 
 	}
 
-	function add(){
-		
-	}
+        function process_edit(){
 
+                $this->tnotification->set_rules('aids_id', 'ID', 'trim|required');
+                $this->tnotification->set_rules('tentangaids', 'Deskripsi Tentang AIDS', 'trim|max_length[1000]');
 
+                if($this->tnotification->run() !== FALSE){
+                    $params = array(
+                        'pref_value' => $this->input->post('tentangaids')
+                    );
+
+                    $where = array(
+                        'pref_id' => $this->input->post('aids_id')
+                    );
+                    
+                    if($this->m_preference->update_preference($params, $where)){
+                        
+                         // success
+                        $this->tnotification->delete_last_field();
+                        $this->tnotification->sent_notification("success", "Data berhasil disimpan");
+                    }else{
+
+                        // default error
+                        $this->tnotification->sent_notification("error", "Data gagal disimpan");
+                    }
+
+                }else{
+                    // default error
+                    $this->tnotification->sent_notification("error", "Data gagal disimpan");
+                }
+
+                redirect("tentangaids");
+        }
 }

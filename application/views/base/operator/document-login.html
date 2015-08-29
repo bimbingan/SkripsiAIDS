@@ -14,30 +14,22 @@
         {$LOAD_STYLE}
     </head>
     <!-- body -->
-    <body class="common-login">
+
+        <body class="login-page">
         <!-- load javascript -->
         {$LOAD_JAVASCRIPT}
-        <!-- end of javascript	-->
-        <div class="page">
-            <div class="holder">
-                <div class="container">
-                    <div class="login-head">
-                        <a href="#"><img src="{$BASEURL}/resource/doc/images/icon/user-image.png" alt="LOGO" /></a>
-                        <h3>Portal Akademik</h3>
-                        <h4>-</h4>
-                        <h4></h4>
-                    </div>
-                    <div class="login-content">
-                        <!-- content -->
-                        {include file="$template_content"}
-                        <!-- end of content -->
-                    </div>
-                </div>
-                <span class="bottom-shadow"></span>
-                <div class="footer-copyright">Copyright &copy; Fairuz</div>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </body>
+        <!-- end of javascript  -->
+        <div class="login-box">
+          <div class="login-logo">
+            <a href="../../index2.html"><b>Sistem Pakar</b> HIV / AIDS</a>
+          </div><!-- /.login-logo -->
+          <div class="login-box-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+            <!-- content -->
+            {include file="$template_content"}
+            <!-- end of content -->
+          </div><!-- /.login-box-body -->
+        </div><!-- /.login-box -->
+      </body>
     <!-- end body -->
 </html>

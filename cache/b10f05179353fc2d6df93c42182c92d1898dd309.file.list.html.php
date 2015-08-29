@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2015-08-23 05:23:19
+<?php /* Smarty version Smarty-3.0.7, created on 2015-08-25 14:08:07
          compiled from "application/views\indikator/indikator1/list.html" */ ?>
-<?php /*%%SmartyHeaderCode:1728955d93ca7c27283-81652753%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3235455dc5aa71890f4-03279746%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b10f05179353fc2d6df93c42182c92d1898dd309' => 
     array (
       0 => 'application/views\\indikator/indikator1/list.html',
-      1 => 1439389261,
+      1 => 1440504141,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1728955d93ca7c27283-81652753',
+  'nocache_hash' => '3235455dc5aa71890f4-03279746',
   'function' => 
   array (
   ),
@@ -42,7 +42,8 @@ $_smarty_tpl->decodeProperties(array (
                 <thead>
                     <tr>
                        	<th>Kode Indikator</th>
-						<th>Keterangan</th>
+                        <th>Keterangan</th>
+						<th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,8 +56,17 @@ if ($_smarty_tpl->_count($_from) > 0){
 						
 							<td><?php echo $_smarty_tpl->tpl_vars['result']->value['kode_indikator1'];?>
 </td>
-							<td><?php echo $_smarty_tpl->tpl_vars['result']->value['ket_indikator1'];?>
+                            <td><?php echo $_smarty_tpl->tpl_vars['result']->value['ket_indikator1'];?>
 </td>
+							<td>
+                                <a href="<?php echo $_smarty_tpl->getVariable('config')->value->site_url('indikator/indikator1/edit');?>
+/<?php echo $_smarty_tpl->tpl_vars['result']->value['kode_indikator1'];?>
+" class="btn btn-sm btn-primary" title="">Edit</a>
+                                <a href="<?php echo $_smarty_tpl->getVariable('config')->value->site_url('indikator/indikator1/delete');?>
+/<?php echo $_smarty_tpl->tpl_vars['result']->value['kode_indikator1'];?>
+" class="btn btn-sm btn-danger" title="">Delete</a>
+
+                            </td>
 						
 						</tr>
 					<?php }} ?>

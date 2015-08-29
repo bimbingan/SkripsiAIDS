@@ -47,6 +47,7 @@
                        	<th>Kode Stadium</th>
                         <th>Nama Stadium</th>
 						<th>Keterangan</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,6 +57,11 @@
 							<td>{$result.kode_stadium}</td>
                             <td>{$result.nama_stadium}</td>
 							<td>{$result.ket_stadium}</td>
+                            <td>
+                                <a href="{$config->site_url('stadium/edit')}/{$result.kode_stadium}" class="btn btn-sm btn-primary" title="">Edit</a>
+                                <a href="{$config->site_url('stadium/delete')}/{$result.kode_stadium}" class="btn btn-sm btn-danger" title="">Delete</a>
+
+                            </td>
 						
 						</tr>
 					{/foreach}
