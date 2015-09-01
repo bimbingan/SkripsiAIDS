@@ -1,25 +1,25 @@
 <?php
 
 if (!defined('BASEPATH'))
-	exit('No direct script access allowed');
+    exit('No direct script access allowed');
 // load base class if needed
 require_once( APPPATH . 'controllers/base/OperatorBase.php' );
 
 class tentangaids extends ApplicationBase{
-	
-	function __construct(){
-		parent::__construct();
-		// load model
+    
+    function __construct(){
+        parent::__construct();
+        // load model
         $this->load->model('pengaturan/m_preference');
         // load library
         $this->load->library('tnotification');
         // load library
         $this->load->library('pagination');
-	}
+    }
 
-	function index() {
-		/* PART 1 : mengatur rule halaman*/ 
-		// set page rules
+    function index() {
+        /* PART 1 : mengatur rule halaman*/ 
+        // set page rules
         $this->_set_page_rule("R");
 
         /* PART 2 : set view */
@@ -40,12 +40,12 @@ class tentangaids extends ApplicationBase{
         // output
         parent::display();
 
-	}
+    }
 
         function process_edit(){
 
                 $this->tnotification->set_rules('aids_id', 'ID', 'trim|required');
-                $this->tnotification->set_rules('tentangaids', 'Deskripsi Tentang AIDS', 'trim|max_length[1000]');
+                $this->tnotification->set_rules('tentangaids', 'Deskripsi Tentang AIDS', 'trim|max_length[5000]');
 
                 if($this->tnotification->run() !== FALSE){
                     $params = array(

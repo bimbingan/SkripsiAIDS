@@ -1,7 +1,7 @@
-<?php
+<?php 
 
 class m_vctcst extends CI_Model{
-
+	
 	function __construct(){
 		parent::__construct();
 	}
@@ -20,7 +20,7 @@ class m_vctcst extends CI_Model{
 
 
 	function get_one_vctcst( $id ){
-		$sql = "SELECT * FROM vctcst WHERE tentang_vctcst = ?"; 	// perintah sql berbentuk string
+		$sql = "SELECT * FROM vctcst WHERE vctcst = ?"; 	// perintah sql berbentuk string
 		$query = $this->db->query( $sql , $id); 	// perintah sql dieksekusi kemudian disimpan di dalam var query
 		if($query->num_rows() > 0){			// query dicek apakah ada isinya atau tidak
 			$result = $query->row_array();	// hasil dari query dipindahkan ke var result dengan menggunakan fungsi result_array (mempunyai baris banyak)
@@ -32,12 +32,12 @@ class m_vctcst extends CI_Model{
 	}
 
 	function insert_vctcst( $params ){
-		$sql = "INSERT INTO vctcst (tentang_vctcst) VALUES(?)";
+		$sql = "INSERT INTO vctcst (vctcst) VALUES(?)";
 		return $this->db->query($sql, $params);
 	}
 
 	function update_vctcst( $params ){
-		$sql = "UPDATE vctcst SET tentang_vctcst = ?";
+		$sql = "UPDATE vctcst SET vctcst = ?";
 		return $this->db->query($sql, $params);
 	}
 

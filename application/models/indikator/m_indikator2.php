@@ -32,7 +32,7 @@ class m_indikator2 extends CI_Model{
 	}
 
 	function insert_indikator2( $params ){
-	return $this->db->insert('indikator2', $params);
+		return $this->db->insert('indikator2', $params);
 	}
 
 	function update_indikator2( $params, $where ){

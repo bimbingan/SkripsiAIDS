@@ -69,6 +69,7 @@ $(document).ready(function() {
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Email</label>
                                 <div class="col-sm-8">
+                                    <input type="hidden" name="operator_email_old" value="{$result.user_mail|default:''}">
                                     <input class="form-control" name="user_mail" type="text" value="{$result.user_mail|default:''}" size="30" maxlength="50" />
                                     <small>* wajib diisi</small>
                                 </div>

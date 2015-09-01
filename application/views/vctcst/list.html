@@ -39,13 +39,13 @@
         </div>
         <div class="box-body">
             <form class="form-horizontal" action="{$config->site_url('vctcst/process_edit')}" method="post">
-                <input type="hidden" name="aids_id" value="{$result.pref_id}">
+                <input type="hidden" name="vctcst_id" value="{$result.pref_id}">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="nama" class="col-sm-2 control-label">Deskripsi Tentang VCT dan CST</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control" rows="8" name="tentangaids">{$result.pref_value}</textarea>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" rows="17" name="vctcst">{$result.pref_value}</textarea>
                             </div>
                         </div>
                     </div>

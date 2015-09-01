@@ -1,27 +1,27 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2015-08-25 15:57:12
+<?php /* Smarty version Smarty-3.0.7, created on 2015-09-01 07:41:21
          compiled from "application/views\tentangaids/list.html" */ ?>
-<?php /*%%SmartyHeaderCode:2198455dc74388d6ae6-33105190%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2292955e53a81db54c2-76560232%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9b62607afe9e6dad87d15e08c7424b2ff8b102f3' => 
     array (
       0 => 'application/views\\tentangaids/list.html',
-      1 => 1440511024,
+      1 => 1441086035,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2198455dc74388d6ae6-33105190',
+  'nocache_hash' => '2292955e53a81db54c2-76560232',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
 <section class="content-header">
-    <h1>Tentang Aids</h1>
+    <h1>Tentang AIDS</h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-th"></i> Tentang Aids</a></li>
-        <li><a href="#">Tentang Aids</a></li>
+        <li><a href="#"><i class="fa fa-th"></i> Tentang AIDS</a></li>
+        <li><a href="#">Tentang AIDS</a></li>
     </ol>
 </section>
 <section class="content">
@@ -31,7 +31,7 @@ $_smarty_tpl->decodeProperties(array (
     <!-- end of notification template-->
     <div class="box">
         <div class="box-header with-border">
-            <h5 class="box-title">Seputar Aids<small></small></h5>
+            <h5 class="box-title">Seputar AIDS<small></small></h5>
         </div>
         <div class="box-body">
             <form class="form-horizontal" action="<?php echo $_smarty_tpl->getVariable('config')->value->site_url('tentangaids/process_edit');?>
@@ -42,8 +42,8 @@ $_smarty_tpl->decodeProperties(array (
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="nama" class="col-sm-2 control-label">Deskripsi Tentang AIDS</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control" rows="8" name="tentangaids"><?php echo $_smarty_tpl->getVariable('result')->value['pref_value'];?>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" rows="17" name="tentangaids"><?php echo $_smarty_tpl->getVariable('result')->value['pref_value'];?>
 </textarea>
                             </div>
                         </div>
