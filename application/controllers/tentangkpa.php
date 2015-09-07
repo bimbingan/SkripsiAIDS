@@ -25,6 +25,7 @@ class tentangkpa extends ApplicationBase{
         /* PART 2 : set view */
         // set template content
         $this->smarty->assign("template_content", "tentangkpa/list.html");
+         $this->smarty->load_javascript("resource/js/ckeditor/ckeditor.js");
 
 
         /* PART 3 : load data from database */
