@@ -6,7 +6,7 @@ if (!defined('BASEPATH'))
 require_once( APPPATH . 'controllers/base/OperatorBase.php' );
 
 class tentangaids extends ApplicationBase{
-    
+
     function __construct(){
         parent::__construct();
         // load model
@@ -18,18 +18,19 @@ class tentangaids extends ApplicationBase{
     }
 
     function index() {
-        /* PART 1 : mengatur rule halaman*/ 
+        /* PART 1 : mengatur rule halaman*/
         // set page rules
         $this->_set_page_rule("R");
 
         /* PART 2 : set view */
         // set template content
         $this->smarty->assign("template_content", "tentangaids/list.html");
-
+        // load js
+        $this->smarty->load_javascript("resource/js/ckeditor/ckeditor.js");
 
         /* PART 3 : load data from database */
         $result = $this->m_preference->get_preference_by_id("81");
-        
+
         $this->smarty->assign("result", $result); // view list.html akan mengenali data indikator1 dengan nama rs_id
 
         /* PART 4 : notifikasi dan display view */
@@ -55,9 +56,9 @@ class tentangaids extends ApplicationBase{
                     $where = array(
                         'pref_id' => $this->input->post('aids_id')
                     );
-                    
+
                     if($this->m_preference->update_preference($params, $where)){
-                        
+
                          // success
                         $this->tnotification->delete_last_field();
                         $this->tnotification->sent_notification("success", "Data berhasil disimpan");
