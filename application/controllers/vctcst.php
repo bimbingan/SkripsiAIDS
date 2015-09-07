@@ -25,6 +25,7 @@ class vctcst extends ApplicationBase{
         /* PART 2 : set view */
         // set template content
         $this->smarty->assign("template_content", "vctcst/list.html");
+         $this->smarty->load_javascript("resource/js/ckeditor/ckeditor.js");
 
 
         /* PART 3 : load data from database */

@@ -1,22 +1,27 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2015-09-01 14:39:33
+<?php /* Smarty version Smarty-3.0.7, created on 2015-09-07 13:57:19
          compiled from "application/views\tentangkpa/list.html" */ ?>
-<?php /*%%SmartyHeaderCode:1488455e59c85ba2808-36772136%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1806455ed7b9f891be5-36793736%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a595cd7bc503dbd8b9738206885e72833ac269a2' => 
     array (
       0 => 'application/views\\tentangkpa/list.html',
-      1 => 1441086075,
+      1 => 1441627009,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1488455e59c85ba2808-36772136',
+  'nocache_hash' => '1806455ed7b9f891be5-36793736',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    CKEDITOR.replace( 'tentangkpa' );
+});
+</script>
 <section class="content-header">
     <h1>Tentang KPA</h1>
     <ol class="breadcrumb">
@@ -44,7 +49,7 @@ $_smarty_tpl->decodeProperties(array (
                         <div class="form-group">
                             <label for="nama" class="col-sm-2 control-label">Deskripsi Tentang KPA</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" rows="17" name="tentangkpa"><?php echo $_smarty_tpl->getVariable('result')->value['pref_value'];?>
+                                <textarea class="form-control" id="tentangkpa" rows="17" name="tentangkpa"><?php echo $_smarty_tpl->getVariable('result')->value['pref_value'];?>
 </textarea>
                             </div>
                         </div>

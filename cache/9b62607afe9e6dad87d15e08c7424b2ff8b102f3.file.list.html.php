@@ -1,22 +1,27 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2015-09-01 07:41:21
+<?php /* Smarty version Smarty-3.0.7, created on 2015-09-07 13:52:51
          compiled from "application/views\tentangaids/list.html" */ ?>
-<?php /*%%SmartyHeaderCode:2292955e53a81db54c2-76560232%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3192755ed7a93428903-62840441%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9b62607afe9e6dad87d15e08c7424b2ff8b102f3' => 
     array (
       0 => 'application/views\\tentangaids/list.html',
-      1 => 1441086035,
+      1 => 1441626526,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2292955e53a81db54c2-76560232',
+  'nocache_hash' => '3192755ed7a93428903-62840441',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    CKEDITOR.replace( 'tentangaids' );
+});
+</script>
 <section class="content-header">
     <h1>Tentang AIDS</h1>
     <ol class="breadcrumb">
@@ -43,7 +48,7 @@ $_smarty_tpl->decodeProperties(array (
                         <div class="form-group">
                             <label for="nama" class="col-sm-2 control-label">Deskripsi Tentang AIDS</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" rows="17" name="tentangaids"><?php echo $_smarty_tpl->getVariable('result')->value['pref_value'];?>
+                                <textarea class="form-control" id="tentangaids" rows="17" name="tentangaids"><?php echo $_smarty_tpl->getVariable('result')->value['pref_value'];?>
 </textarea>
                             </div>
                         </div>
