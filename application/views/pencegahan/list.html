@@ -1,14 +1,19 @@
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    CKEDITOR.replace( 'pencegahan' );
+});
+</script>
 <section class="content-header">
-    <h1>Pencegahan Khusus</h1>
+    <h1>Pencegahan AIDS</h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-th"></i> Pencegahan</a></li>
-        <li><a href="#">Pencegahan Khusus</a></li>
+        <li><a href="#"><i class="fa fa-th"></i> Pencegahan AIDS</a></li>
+        <li><a href="#">Pencegahan AIDS</a></li>
     </ol>
 </section>
 <section class="content">
     {* <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Data Pencegahan Khusus</h3>
+            <h3 class="box-title">Pencegahan AIDS</h3>
         </div><!-- /.box-header -->
         <!-- form start -->
         <div class="box-body">
@@ -35,36 +40,28 @@
     <!-- end of notification template-->
     <div class="box">
         <div class="box-header with-border">
-            <h5 class="box-title">Data Pencegahan Khusus<small></small></h5>
-            <div class="box-tools">
-                <a href="{$config->site_url('pencegahan/pencegahankhusus/add')}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>&nbsp; Tambah</a>
-            </div>
+            <h5 class="box-title">Pencegahan AIDS<small></small></h5>
         </div>
         <div class="box-body">
-            <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                       	<th>Kode Pencegahan Khusus</th>
-						<th>Pencegahan Khusus</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {foreach $rs_id as $result}
-						<tr> 
-						
-							<td>{$result.kode_pencegahankhusus}</td>
-							<td>{$result.pencegahan_khusus}</td>
-                            <td>
-                                <a href="{$config->site_url('pencegahan/pencegahankhusus/edit')}/{$result.kode_pencegahankhusus}" class="btn btn-sm btn-primary" title="">Edit</a>
-                                <a href="{$config->site_url('pencegahan/pencegahankhusus/delete')}/{$result.kode_pencegahankhusus}" class="btn btn-sm btn-danger" title="">Delete</a>
-
-                            </td>
-						
-						</tr>
-					{/foreach}
-                </tbody>
-            </table>
+            <form class="form-horizontal" action="{$config->site_url('pencegahan/process_edit')}" method="post">
+                <input type="hidden" name="pencegahan_id" value="{$result.pref_id}">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="nama" class="col-sm-2 control-label">Pencegahan AIDS</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="pencegahan" rows="17" name="pencegahan">{$result.pref_value}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2 pull-right action-right">
+                        <input class="btn btn-primary " name="save" type="submit" value="Simpan">
+                        <input class="btn btn-danger" name="save" type="reset" value="Reset">
+                    </div>
+                </div>
+            </form>
         </div>
         {* <div class="box-footer clearfix">
             <div class="col-sm-6">

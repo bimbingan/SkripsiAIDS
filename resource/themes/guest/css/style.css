@@ -216,7 +216,7 @@ body {
 }
 
 #slide-1 {
-	background-image: url('../images/hiv4.jpg');
+	background-image: url('../images/blur.jpg');
 	color: #ffffff;
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
@@ -609,4 +609,24 @@ body {
 
 .navigation-slide {
 	cursor: pointer;
+}
+
+.slide#slide-2 .keterangan{
+	text-align: left;
+}
+
+.slide#slide-4 .keterangan{
+	text-align: left;
+}
+
+.slide#slide-6 .keterangan{
+	text-align: left;
+}
+
+.slide#slide-5 .keterangan{
+	text-align: left;
+}
+
+.slide#slide-3 .keterangan{
+	text-align: left;
 }

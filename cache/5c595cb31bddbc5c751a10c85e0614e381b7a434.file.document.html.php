@@ -1,23 +1,23 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2015-09-07 14:30:17
+<?php /* Smarty version Smarty-3.0.7, created on 2015-09-09 05:52:51
          compiled from "application/views\base/operator/document.html" */ ?>
-<?php /*%%SmartyHeaderCode:2010755ed83590d3c48-93939957%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1081555efad136a29e8-28165552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '5c595cb31bddbc5c751a10c85e0614e381b7a434' => 
     array (
       0 => 'application/views\\base/operator/document.html',
-      1 => 1440851401,
+      1 => 1441717264,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2010755ed83590d3c48-93939957',
+  'nocache_hash' => '1081555efad136a29e8-28165552',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<?php if (!is_callable('smarty_modifier_capitalize')) include 'D:\xampp\htdocs\SkripsiAIDS\system\plugins\smarty\libs\plugins\modifier.capitalize.php';
+<?php if (!is_callable('smarty_modifier_capitalize')) include 'C:\xampp\htdocs\SkripsiAIDS\system\plugins\smarty\libs\plugins\modifier.capitalize.php';
 ?><!DOCTYPE html>
 <html lang="en">
 <!-- head -->
@@ -52,7 +52,7 @@ $_smarty_tpl->decodeProperties(array (
             <!-- Logo -->
             <a href="http://localhost/skripsiSPK/index.php/home" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>SPK</b></span>
+                <span class="logo-mini"><b>SISTEM PAKAR</b></span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg"><b>Diagnosa HIV / AIDS</b></span>
             </a>
