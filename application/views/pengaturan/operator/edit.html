@@ -13,10 +13,11 @@ $(document).ready(function() {
         <li><a href="#">Ubah Data</a></li>
     </ol>
 </section>
-<!-- notification template -->
-{include file="base/templates/notification.html"}
-<!-- end of notification template-->
+
 <section class="content">
+    <!-- notification template -->
+    {include file="base/templates/notification.html"}
+    <!-- end of notification template-->
     <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
             <li class="active"><a href="#">Data Pribadi</a></li>
@@ -26,7 +27,7 @@ $(document).ready(function() {
 
         </div><!-- /.box-header -->
         <!-- form start -->
-        <form action="{$config->site_url('pengaturan/operator/edit_process')}" method="post">
+        <form action="{$config->site_url('pengaturan/operator/edit_process')}" enctype="multipart/form-data" method="post">
             <div class="box-body">
                 <div class="form-horizontal">
                     <input name="user_id" type="hidden"  value="{$result.user_id|default:''}" />

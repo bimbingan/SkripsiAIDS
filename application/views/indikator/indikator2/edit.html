@@ -41,9 +41,7 @@
             </div>
         </div>
         <div class="box-body">
-           
-
-             <form class="form-horizontal" action="{$config->site_url('indikator/indikator2/process_edit')}" method="post">
+            <form class="form-horizontal" action="{$config->site_url('indikator/indikator2/process_edit')}" method="post">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -52,7 +50,7 @@
                                 <input type="text" class="form-control" readonly="" value="{$result.kode_indikator2}" name="kode_indikator2" placeholder="-- semua --">
                             </div>
                         </div>
-                          <label for="nama" class="col-sm-2 control-label">Bobot</label>
+                        <div class="form-group"><label for="nama" class="col-sm-2 control-label">Bobot</label>
                             <div class="col-sm-5">
                                 <input type="text" class="form-control"  value="{$result.bobot}" name="bobot" placeholder="-- semua --">
                             </div>
@@ -72,17 +70,6 @@
                     </div>
                 </div>
             </form>
-
-
-
         </div>
-        {* <div class="box-footer clearfix">
-            <div class="col-sm-6">
-                Menampilkan <b>{$pagination.start|default:0}</b> sampai <b>{$pagination.end|default:0}</b> dari <b>{$pagination.total|default:0}</b></strong> Data Operator
-            </div>
-            <ul class="pagination pagination-sm no-margin pull-right">
-                {$pagination.data|default:''}
-            </ul>
-        </div> *}
     </div>
 </section>

@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+exit('No direct script access allowed');
 // load base class if needed
 require_once( APPPATH . 'controllers/base/OperatorBase.php' );
 
@@ -40,39 +40,37 @@ class vctcst extends ApplicationBase{
         $this->tnotification->display_last_field();
         // output
         parent::display();
-
     }
 
-        function process_edit(){
+    function process_edit(){
 
-                $this->tnotification->set_rules('vctcst_id', 'ID', 'trim|required');
-                $this->tnotification->set_rules('vctcst', 'Deskripsi Tentang VCT CST', 'trim|max_length[5000]');
+        $this->tnotification->set_rules('vctcst_id', 'ID', 'trim|required');
+        $this->tnotification->set_rules('vctcst', 'Deskripsi Tentang VCT CST', 'trim|max_length[5000]');
 
-                if($this->tnotification->run() !== FALSE){
-                    $params = array(
-                        'pref_value' => $this->input->post('vctcst')
-                    );
+        if($this->tnotification->run() !== FALSE){
+            $params = array(
+                'pref_value' => $this->input->post('vctcst')
+            );
 
-                    $where = array(
-                        'pref_id' => $this->input->post('vctcst')
-                    );
+            $where = array(
+                'pref_id' => $this->input->post('vctcst_id')
+            );
 
-                    if($this->m_preference->update_preference($params, $where)){
+            if($this->m_preference->update_preference($params, $where)){
+                // success
+                $this->tnotification->delete_last_field();
+                $this->tnotification->sent_notification("success", "Data berhasil disimpan");
+            }else{
 
-                         // success
-                        $this->tnotification->delete_last_field();
-                        $this->tnotification->sent_notification("success", "Data berhasil disimpan");
-                    }else{
+                // default error
+                $this->tnotification->sent_notification("error", "Data gagal disimpan");
+            }
 
-                        // default error
-                        $this->tnotification->sent_notification("error", "Data gagal disimpan");
-                    }
-
-                }else{
-                    // default error
-                    $this->tnotification->sent_notification("error", "Data gagal disimpan");
-                }
-
-                redirect("vctcst");
+        }else{
+            // default error
+            $this->tnotification->sent_notification("error", "Data gagal disimpan");
         }
+
+        redirect("vctcst");
+    }
 }
