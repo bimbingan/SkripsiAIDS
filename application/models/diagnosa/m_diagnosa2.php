@@ -1,13 +1,13 @@
 <?php 
 
-class m_solusi2 extends CI_Model{
+class m_diagnosa2 extends CI_Model{
 	
 	function __construct(){
 		parent::__construct();
 	}
 
-	function get_all_solusi2(){
-		$sql = "SELECT * FROM solusi2"; 	// perintah sql berbentuk string
+	function get_all_diagnosa2(){
+		$sql = "SELECT * FROM diagnosa2"; 	// perintah sql berbentuk string
 		$query = $this->db->query($sql); 	// perintah sql dieksekusi kemudian disimpan di dalam var query
 		if($query->num_rows() > 0){			// query dicek apakah ada isinya atau tidak
 			$result = $query->result_array();	// hasil dari query dipindahkan ke var result dengan menggunakan fungsi result_array (mempunyai baris banyak)
@@ -19,8 +19,8 @@ class m_solusi2 extends CI_Model{
 	}
 
 
-	function get_one_solusi2( $id ){
-		$sql = "SELECT * FROM solusi2 WHERE kode_solusi2 = ?"; 	// perintah sql berbentuk string
+	function get_one_diagnosa2( $id ){
+		$sql = "SELECT * FROM diagnosa2 WHERE kode_diagnosa2 = ?"; 	// perintah sql berbentuk string
 		$query = $this->db->query( $sql , $id); 	// perintah sql dieksekusi kemudian disimpan di dalam var query
 		if($query->num_rows() > 0){			// query dicek apakah ada isinya atau tidak
 			$result = $query->row_array();	// hasil dari query dipindahkan ke var result dengan menggunakan fungsi result_array (mempunyai baris banyak)
@@ -31,16 +31,16 @@ class m_solusi2 extends CI_Model{
 		}
 	}
 
-	function insert_solusi2( $params ){
-		return $this->db->insert('solusi2', $params);
+	function insert_diagnosa2( $params ){
+		return $this->db->insert('diagnosa2', $params);
 	}
 
-	function update_solusi2( $params, $where ){
-		return $this->db->update('solusi2', $params, $where);
+	function update_diagnosa2( $params, $where ){
+		return $this->db->update('diagnosa2', $params, $where);
 	}
 
-	function delete_solusi2( $params ){
-		$sql = "DELETE FROM solusi2 WHERE kode_solusi2 = ?";
+	function delete_diagnosa2( $params ){
+		$sql = "DELETE FROM diagnosa2 WHERE kode_diagnosa2 = ?";
 		return $this->db->query($sql, $params);
 	}
 }

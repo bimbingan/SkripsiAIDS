@@ -1,14 +1,14 @@
 <section class="content-header">
-    <h1>Solusi 2</h1>
+    <h1>Diagnosa 1</h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-th"></i> Solusi</a></li>
-        <li><a href="#">Solusi 2</a></li>
+        <li><a href="#"><i class="fa fa-th"></i> Diagnosa</a></li>
+        <li><a href="#">Diagnosa 1</a></li>
     </ol>
 </section>
 <section class="content">
     {* <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Data Solusi</h3>
+            <h3 class="box-title">Data Diagnosa</h3>
         </div><!-- /.box-header -->
         <!-- form start -->
         <div class="box-body">
@@ -35,31 +35,35 @@
     <!-- end of notification template-->
     <div class="box">
         <div class="box-header with-border">
-            <h5 class="box-title">Data Solusi 2<small></small></h5>
+            <h5 class="box-title">Data Diagnosa 1<small></small></h5>
             <div class="box-tools">
-                <a href="{$config->site_url('solusi/solusi2/add')}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>&nbsp; Tambah</a>
+                <a href="{$config->site_url('diagnosa/diagnosa1/add')}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>&nbsp; Tambah</a>
             </div>
         </div>
         <div class="box-body">
             <table id="example2" class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                       	<th>Kode Solusi 2</th>
-                        <th>Nama Stadium</th>
-						<th>Keterangan Solusi 2</th>
-                        <th>Action</th>
+                       	<th>Kode Diagnosa 1</th>
+                        <th>Kode Indikator 1</th>
+                        <th>Kode Solusi 1</th>
+                        <th>Mb</th>
+                        <th>Md</th>
+						<th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {foreach $rs_id as $result}
 						<tr> 
 						
-							<td>{$result.kode_solusi2}</td>
-                            <td>{$result.nama_stadium}</td>
-							<td>{$result.ket_solusi2}</td>
-                            <td>
-                                <a href="{$config->site_url('solusi/solusi2/edit')}/{$result.kode_solusi2}" class="btn btn-sm btn-primary" title="">Edit</a>
-                                <a href="{$config->site_url('solusi/solusi2/delete')}/{$result.kode_solusi2}" class="btn btn-sm btn-danger" title="">Delete</a>
+							<td>{$result.kode_diagnosa1}</td>
+                            <td>{$result.kode_indikator1}</td>
+                            <td>{$result.kode_solusi1}</td>
+                            <td>{$result.mb}</td>
+                            <td>{$result.md}</td>
+							<td>
+                                <a href="{$config->site_url('diagnosa/diagnosa1/edit')}/{$result.kode_diagnosa1}" class="btn btn-sm btn-primary" title="">Edit</a>
+                                <a href="{$config->site_url('diagnosa/diagnosa1/delete')}/{$result.kode_diagnosa1}" class="btn btn-sm btn-danger" title="">Delete</a>
 
                             </td>
 						

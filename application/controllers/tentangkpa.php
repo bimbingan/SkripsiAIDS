@@ -46,7 +46,7 @@ class tentangkpa extends ApplicationBase{
         function process_edit(){
 
                 $this->tnotification->set_rules('kpa_id', 'ID', 'trim|required');
-                $this->tnotification->set_rules('tentangkpa', 'Deskripsi Tentang KPA', 'trim|max_length[1000]');
+                $this->tnotification->set_rules('tentangkpa', 'Deskripsi Tentang KPA', 'trim|max_length[5000]');
 
                 if($this->tnotification->run() !== FALSE){
                     $params = array(

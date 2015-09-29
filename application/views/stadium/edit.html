@@ -43,25 +43,35 @@
         <div class="box-body">
            
 
-             <form class="form-horizontal" action="{$config->site_url('stadium/process_edit')}" method="post">
+             <form class="form-horizontal" action="{$config->site_url('stadium/stadium/process_edit')}" method="post">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="nama" class="col-sm-2 control-label">Kode</label>
                            <div class="col-sm-5">
-                                <input type="text" class="form-control" readonly="" value="{$result.kode_stadium}" name="kode_pencegahanprimer" placeholder="-- semua --">
+                                <input type="text" class="form-control" readonly="" value="{$result.kode_stadium}" name="kode_stadium" placeholder="-- semua --">
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             <label for="nama" class="col-sm-2 control-label">Nama Stadium</label>
                            <div class="col-sm-10">
                                 <input type="text" class="form-control"value="{$result.nama_stadium}" name="nama_stadium" placeholder="-- semua --">
                             </div>
                         </div>
-                        <div class="form-group">
+                        
+                         <div class="form-group">
                             <label for="nama" class="col-sm-2 control-label">Keterangan</label>
-                            <div class="col-sm-10">
+                           <div class="col-sm-10">
                                 <input type="text" class="form-control"value="{$result.ket_stadium}" name="ket_stadium" placeholder="-- semua --">
+                            </div>
+                        </div>
+                        
+
+                        <div class="form-group">
+                            <label for="nama" class="col-sm-2 control-label">Solusi</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control"value="{$result.solusi}" name="solusi" placeholder="-- semua --">
                             </div>
                         </div>
                     </div>

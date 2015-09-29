@@ -58,14 +58,11 @@ class indikator2 extends ApplicationBase{
         $this->_set_page_rule("C");
 
         $this->tnotification->set_rules('kode_indikator2', 'Kode', 'trim|required|max_length[5]');
-        $this->tnotification->set_rules('bobot', 'Bobot', 'trim|required|max_length[5]');
         $this->tnotification->set_rules('ket_indikator2', 'Keterangan', 'trim|required|max_length[1000]');
-
 
         if($this->tnotification->run() !== FALSE){
             $params = array(
                 'kode_indikator2' => $this->input->post('kode_indikator2'),
-                'bobot' => $this->input->post('bobot'),
                 'ket_indikator2' => $this->input->post('ket_indikator2')
             );
             
@@ -108,14 +105,11 @@ class indikator2 extends ApplicationBase{
         $this->_set_page_rule("U");
 
         $this->tnotification->set_rules('kode_indikator2', 'Kode', 'trim|required|max_length[5]');
-        $this->tnotification->set_rules('bobot', 'Bobot', 'trim|required|max_length[5]');
         $this->tnotification->set_rules('ket_indikator2', 'Keterangan', 'trim|required|max_length[1000]');
-
 
         if($this->tnotification->run() !== FALSE){
             $params = array(
-                'ket_indikator2' => $this->input->post('ket_indikator2'),
-                'bobot' => $this->input->post('bobot')
+                'ket_indikator2' => $this->input->post('ket_indikator2')
             );
 
             $where = array(

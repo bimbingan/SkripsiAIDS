@@ -1,14 +1,14 @@
 <section class="content-header">
-    <h1>Indikator 1</h1>
+    <h1>Diagnosa 2</h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-th"></i> Indikator</a></li>
-        <li><a href="#">Indikator 1</a></li>
+        <li><a href="#"><i class="fa fa-th"></i> Diagnosa</a></li>
+        <li><a href="#">Diagnosa 2</a></li>
     </ol>
 </section>
 <section class="content">
     {* <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Data Indikator</h3>
+            <h3 class="box-title">Data Diagnosa</h3>
         </div><!-- /.box-header -->
         <!-- form start -->
         <div class="box-body">
@@ -35,17 +35,20 @@
     <!-- end of notification template-->
     <div class="box">
         <div class="box-header with-border">
-            <h5 class="box-title">Data Indikator 1<small></small></h5>
+            <h5 class="box-title">Data Diagnosa 2<small></small></h5>
             <div class="box-tools">
-                <a href="{$config->site_url('indikator/indikator1/add')}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>&nbsp; Tambah</a>
+                <a href="{$config->site_url('diagnosa/diagnosa2/add')}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>&nbsp; Tambah</a>
             </div>
         </div>
         <div class="box-body">
             <table id="example2" class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                       	<th>Kode Indikator</th>
-                        <th>Keterangan</th>
+                       	<th>Kode Diagnosa 2</th>
+                        <th>Kode Indikator 2</th>
+                        <th>Kode Stadium</th>
+                        <th>Mb</th>
+                        <th>Md</th>
 						<th>Action</th>
                     </tr>
                 </thead>
@@ -53,11 +56,14 @@
                     {foreach $rs_id as $result}
 						<tr> 
 						
-							<td>{$result.kode_indikator1}</td>
-                            <td>{$result.ket_indikator1}</td>
+							<td>{$result.kode_diagnosa2}</td>
+                            <td>{$result.kode_indikator2}</td>
+                            <td>{$result.kode_stadium}</td>
+                            <td>{$result.mb}</td>
+                            <td>{$result.md}</td>
 							<td>
-                                <a href="{$config->site_url('indikator/indikator1/edit')}/{$result.kode_indikator1}" class="btn btn-sm btn-primary" title="">Edit</a>
-                                <a href="{$config->site_url('indikator/indikator1/delete')}/{$result.kode_indikator1}" class="btn btn-sm btn-danger" title="">Delete</a>
+                                <a href="{$config->site_url('diagnosa/diagnosa2/edit')}/{$result.kode_diagnosa2}" class="btn btn-sm btn-primary" title="">Edit</a>
+                                <a href="{$config->site_url('diagnosa/diagnosa2/delete')}/{$result.kode_diagnosa2}" class="btn btn-sm btn-danger" title="">Delete</a>
 
                             </td>
 						

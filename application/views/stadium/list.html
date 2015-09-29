@@ -47,6 +47,7 @@
                        	<th>Kode Stadium</th>
                         <th>Nama Stadium</th>
 						<th>Keterangan</th>
+                        <th>Solusi</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -57,6 +58,7 @@
 							<td>{$result.kode_stadium}</td>
                             <td>{$result.nama_stadium}</td>
 							<td>{$result.ket_stadium}</td>
+                            <td>{$result.solusi}</td>
                             <td>
                                 <a href="{$config->site_url('stadium/stadium/edit')}/{$result.kode_stadium}" class="btn btn-sm btn-primary" title="">Edit</a>
                                 <a href="{$config->site_url('stadium/stadium/delete')}/{$result.kode_stadium}" class="btn btn-sm btn-danger" title="">Delete</a>

@@ -1,16 +1,16 @@
 <?php
 
 if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+	exit('No direct script access allowed');
 // load base class if needed
 require_once( APPPATH . 'controllers/base/OperatorBase.php' );
 
-class stadium extends ApplicationBase{
-    
+class diagnosa1 extends ApplicationBase{
+	
     function __construct(){
         parent::__construct();
-       // load model
-        $this->load->model('stadium/m_stadium');
+	   // load model
+        $this->load->model('diagnosa/m_diagnosa1');
         // load library
         $this->load->library('tnotification');
         // load library
@@ -19,17 +19,17 @@ class stadium extends ApplicationBase{
 
     function index() {
       /* PART 1 : mengatur rule halaman*/ 
-        // set page rules
+		// set page rules
       $this->_set_page_rule("R");
 
       /* PART 2 : set view */
         // set template content
-      $this->smarty->assign("template_content", "stadium/list.html");
+      $this->smarty->assign("template_content", "diagnosa/diagnosa1/list.html");
 
 
       /* PART 3 : load data from database */
-      $stadium = $this->m_stadium->get_all_stadium();
-        $this->smarty->assign("rs_id", $stadium); // view list.html akan mengenali data indikator1 dengan nama rs_id
+        $diagnosa1 = $this->m_diagnosa1->get_all_diagnosa1();
+        $this->smarty->assign("rs_id", $diagnosa1); // view list.html akan mengenali data indikator1 dengan nama rs_id
 
         /* PART 4 : notifikasi dan display view */
 
@@ -43,7 +43,7 @@ class stadium extends ApplicationBase{
 
     function add(){
       $this->_set_page_rule("C");
-      $this->smarty->assign("template_content", "stadium/add.html");
+      $this->smarty->assign("template_content", "diagnosa/diagnosa1/add.html");
 
 
       // notification
@@ -57,21 +57,23 @@ class stadium extends ApplicationBase{
     function process_add(){
         $this->_set_page_rule("C");
 
-        $this->tnotification->set_rules('kode_stadium', 'Kode', 'trim|required|max_length[5]');
-        $this->tnotification->set_rules('nama_stadium', 'Nama Stadium', 'trim|required|max_length[30]');
-        $this->tnotification->set_rules('ket_stadium', 'Keterangan', 'trim|required|max_length[1000]');
-        $this->tnotification->set_rules('solusi', 'Solusi', 'trim|required|max_length[1000]');
+        $this->tnotification->set_rules('kode_diagnosa1', 'Kode Diagnosa 1', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('kode_indikator1', 'Kode Indikator 1', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('kode_solusi1', 'Kode Solusi 1', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('mb', 'Mb', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('md', 'Md', 'trim|required|max_length[5]');
 
 
         if($this->tnotification->run() !== FALSE){
             $params = array(
-                'kode_stadium' => $this->input->post('kode_stadium'),
-                'nama_stadium' => $this->input->post('nama_stadium'), 
-                'ket_stadium' => $this->input->post('ket_stadium'),
-                'solusi' => $this->input->post('solusi')
+                'kode_diagnosa1' => $this->input->post('kode_diagnosa1'),
+                'kode_indikator1' => $this->input->post('kode_indikator1'),
+                'kode_solusi1' => $this->input->post('kode_solusi1'),
+                'mb' => $this->input->post('mb'),
+                'md' => $this->input->post('md')
             );
             
-            if($this->m_stadium->insert_stadium($params)){
+            if($this->m_diagnosa1->insert_diagnosa1($params)){
                 
                  // success
                 $this->tnotification->delete_last_field();
@@ -88,16 +90,16 @@ class stadium extends ApplicationBase{
         }
 
 
-        redirect("stadium/stadium/add");
-        
-    }
+        redirect("diagnosa/diagnosa1/add");
+    } 
+
 
     function edit($params){
         $this->_set_page_rule("U");
-        $this->smarty->assign("template_content", "stadium/edit.html");
+        $this->smarty->assign("template_content", "diagnosa/diagnosa1/edit.html");
 
-        $stadium = $this->m_stadium->get_one_stadium($params);
-        $this->smarty->assign("result", $stadium);
+        $diagnosa1 = $this->m_diagnosa1->get_one_diagnosa1($params);
+        $this->smarty->assign("result", $diagnosa1);
 
         // notification
         $this->tnotification->display_notification();
@@ -109,23 +111,25 @@ class stadium extends ApplicationBase{
      function process_edit(){
         $this->_set_page_rule("U");
 
-        $this->tnotification->set_rules('kode_stadium', 'Kode', 'trim|required|max_length[5]');
-        $this->tnotification->set_rules('nama_stadium', 'Nama Stadium', 'trim|required|max_length[30]');
-        $this->tnotification->set_rules('ket_stadium', 'Keterangan', 'trim|required|max_length[1000]');
-        $this->tnotification->set_rules('solusi', 'Solusi', 'trim|required|max_length[1000]');
+       $this->tnotification->set_rules('kode_diagnosa1', 'Kode Diagnosa 1', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('kode_indikator1', 'Kode Indikator 1', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('kode_solusi1', 'Kode Solusi 1', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('mb', 'Mb', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('md', 'Md', 'trim|required|max_length[5]');
 
         if($this->tnotification->run() !== FALSE){
             $params = array(
-                'solusi' => $this->input->post('solusi'),
-                'ket_stadium' => $this->input->post('ket_stadium'),
-                'nama_stadium' => $this->input->post('nama_stadium')
+                'md' => $this->input->post('md'),
+                'mb' => $this->input->post('mb'),
+                'kode_solusi1' => $this->input->post('kode_solusi1'),
+                'kode_indikator1' => $this->input->post('kode_indikator1')
             );
 
             $where = array(
-                'kode_stadium' => $this->input->post('kode_stadium')
+                'kode_diagnosa1' => $this->input->post('kode_diagnosa1')
             );
             
-            if($this->m_stadium->update_stadium($params, $where)){
+            if($this->m_diagnosa1->update_diagnosa1($params, $where)){
                 
                  // success
                 $this->tnotification->delete_last_field();
@@ -142,13 +146,13 @@ class stadium extends ApplicationBase{
         }
 
 
-        redirect("stadium/stadium/edit/". $this->input->post('kode_stadium'));
+        redirect("diagnosa/diagnosa1/edit/". $this->input->post('kode_diagnosa1'));
     }
 
     function delete($params){
         $this->_set_page_rule("D");
 
-        if($this->m_stadium->delete_stadium($params)){
+        if($this->m_diagnosa1->delete_diagnosa1($params, $where)){
               // success
                 $this->tnotification->delete_last_field();
                 $this->tnotification->sent_notification("success", "Data berhasil dihapus");
@@ -156,7 +160,7 @@ class stadium extends ApplicationBase{
             $this->tnotification->sent_notification("error", "Data gagal dihapus");
 
         }
-        redirect("stadium/stadium");
+        redirect("diagnosa/diagnosa1/");
     }
 
 
