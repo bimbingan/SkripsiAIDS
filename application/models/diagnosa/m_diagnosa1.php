@@ -32,7 +32,7 @@ class m_diagnosa1 extends CI_Model{
 	}
 
 	function get_mb($params){
-		$sql = "SELECT mb FROM diagnosa1 WHERE kode_indikator1 = ? AND kode_solusi1 = ?";
+		$sql = "SELECT mb FROM diagnosa1 WHERE kode_indikator1 = ? AND kode_solusi = ?";
 		$query = $this->db->query( $sql , $params); 	// perintah sql dieksekusi kemudian disimpan di dalam var query
 		if($query->num_rows() > 0){			// query dicek apakah ada isinya atau tidak
 			$result = $query->row_array();	// hasil dari query dipindahkan ke var result dengan menggunakan fungsi result_array (mempunyai baris banyak)
@@ -43,8 +43,8 @@ class m_diagnosa1 extends CI_Model{
 		}	
 	}
 
-	function get_md(){
-		$sql = "SELECT md FROM diagnosa1 WHERE kode_indikator1 = ? AND kode_solusi1 = ?";
+	function get_md($params){
+		$sql = "SELECT md FROM diagnosa1 WHERE kode_indikator1 = ? AND kode_solusi = ?";
 		$query = $this->db->query( $sql , $params);
 		if($query->num_rows() > 0){			// query dicek apakah ada isinya atau tidak
 			$result = $query->row_array();	// hasil dari query dipindahkan ke var result dengan menggunakan fungsi result_array (mempunyai baris banyak)

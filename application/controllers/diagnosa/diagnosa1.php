@@ -59,7 +59,7 @@ class diagnosa1 extends ApplicationBase{
 
         $this->tnotification->set_rules('kode_diagnosa1', 'Kode Diagnosa 1', 'trim|required|max_length[5]');
         $this->tnotification->set_rules('kode_indikator1', 'Kode Indikator 1', 'trim|required|max_length[5]');
-        $this->tnotification->set_rules('kode_solusi1', 'Kode Solusi 1', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('kode_solusi', 'Kode Solusi 1', 'trim|required|max_length[5]');
         $this->tnotification->set_rules('mb', 'Mb', 'trim|required|max_length[5]');
         $this->tnotification->set_rules('md', 'Md', 'trim|required|max_length[5]');
 
@@ -68,7 +68,7 @@ class diagnosa1 extends ApplicationBase{
             $params = array(
                 'kode_diagnosa1' => $this->input->post('kode_diagnosa1'),
                 'kode_indikator1' => $this->input->post('kode_indikator1'),
-                'kode_solusi1' => $this->input->post('kode_solusi1'),
+                'kode_solusi' => $this->input->post('kode_solusi'),
                 'mb' => $this->input->post('mb'),
                 'md' => $this->input->post('md')
             );
@@ -113,7 +113,7 @@ class diagnosa1 extends ApplicationBase{
 
        $this->tnotification->set_rules('kode_diagnosa1', 'Kode Diagnosa 1', 'trim|required|max_length[5]');
         $this->tnotification->set_rules('kode_indikator1', 'Kode Indikator 1', 'trim|required|max_length[5]');
-        $this->tnotification->set_rules('kode_solusi1', 'Kode Solusi 1', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('kode_solusi', 'Kode Solusi 1', 'trim|required|max_length[5]');
         $this->tnotification->set_rules('mb', 'Mb', 'trim|required|max_length[5]');
         $this->tnotification->set_rules('md', 'Md', 'trim|required|max_length[5]');
 
@@ -121,7 +121,7 @@ class diagnosa1 extends ApplicationBase{
             $params = array(
                 'md' => $this->input->post('md'),
                 'mb' => $this->input->post('mb'),
-                'kode_solusi1' => $this->input->post('kode_solusi1'),
+                'kode_solusi' => $this->input->post('kode_solusi'),
                 'kode_indikator1' => $this->input->post('kode_indikator1')
             );
 

@@ -5,12 +5,12 @@ if (!defined('BASEPATH'))
 // load base class if needed
 require_once( APPPATH . 'controllers/base/OperatorBase.php' );
 
-class solusi1 extends ApplicationBase{
+class solusi extends ApplicationBase{
 	
 	function __construct(){
 		parent::__construct();
 		// load model
-        $this->load->model('solusi/m_solusi1');
+        $this->load->model('solusi/m_solusi');
         // load library
         $this->load->library('tnotification');
         // load library
@@ -24,12 +24,12 @@ class solusi1 extends ApplicationBase{
 
         /* PART 2 : set view */
         // set template content
-        $this->smarty->assign("template_content", "solusi/solusi1/list.html");
+        $this->smarty->assign("template_content", "solusi/list.html");
 
 
         /* PART 3 : load data from database */
-        $solusi1 = $this->m_solusi1->get_all_solusi1();
-        $this->smarty->assign("rs_id", $solusi1); // view list.html akan mengenali data indikator1 dengan nama rs_id
+        $solusi = $this->m_solusi->get_all_solusi();
+        $this->smarty->assign("rs_id", $solusi); // view list.html akan mengenali data indikator1 dengan nama rs_id
 
         /* PART 4 : notifikasi dan display view */
 
@@ -43,7 +43,7 @@ class solusi1 extends ApplicationBase{
 
 	function add(){
                 $this->_set_page_rule("C");
-      $this->smarty->assign("template_content", "solusi/solusi1/add.html");
+      $this->smarty->assign("template_content", "solusi/add.html");
 
 
       // notification
@@ -57,20 +57,18 @@ class solusi1 extends ApplicationBase{
     function process_add(){
         $this->_set_page_rule("C");
 
-        $this->tnotification->set_rules('kode_solusi1', 'Kode', 'trim|required|max_length[5]');
-        $this->tnotification->set_rules('hasil', 'hasil', 'trim|required|max_length[300]');
-        $this->tnotification->set_rules('ket_solusi1', 'Keterangan', 'trim|required|max_length[350]');
+        $this->tnotification->set_rules('kode_solusi', 'Kode', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('hasil', 'Hasil', 'trim|required|max_length[300]');
+        $this->tnotification->set_rules('ket_solusi', 'Keterangan', 'trim|required|max_length[350]');
 
         if($this->tnotification->run() !== FALSE){
             $params = array(
-                'kode_solusi1' => $this->input->post('kode_solusi1'), 
+                'kode_solusi' => $this->input->post('kode_solusi'), 
                 'hasil' => $this->input->post('hasil'),
-                'ket_solusi1' => $this->input->post('ket_solusi1'),
+                'ket_solusi' => $this->input->post('ket_solusi'),
             );
-            echo "<pre>";
-            print_r($params);
             
-            if($this->m_solusi1->insert_solusi1($params)){
+            if($this->m_solusi->insert_solusi($params)){
                 
                  // success
                 $this->tnotification->delete_last_field();
@@ -87,16 +85,16 @@ class solusi1 extends ApplicationBase{
         }
 
 
-        redirect("solusi/solusi1/add");
+        redirect("solusi/solusi/add");
 		
 	}
 
     function edit($params){
         $this->_set_page_rule("U");
-        $this->smarty->assign("template_content", "solusi/solusi1/edit.html");
+        $this->smarty->assign("template_content", "solusi/edit.html");
 
-        $solusi1 = $this->m_solusi1->get_one_solusi1($params);
-        $this->smarty->assign("result", $solusi1);
+        $solusi = $this->m_solusi->get_one_solusi($params);
+        $this->smarty->assign("result", $solusi);
 
         // notification
         $this->tnotification->display_notification();
@@ -108,22 +106,22 @@ class solusi1 extends ApplicationBase{
      function process_edit(){
         $this->_set_page_rule("U");
 
-        $this->tnotification->set_rules('kode_solusi1', 'Kode', 'trim|required|max_length[5]');
+        $this->tnotification->set_rules('kode_solusi', 'Kode', 'trim|required|max_length[5]');
         $this->tnotification->set_rules('hasil', 'Hasil', 'trim|required|max_length[300]');
-        $this->tnotification->set_rules('ket_solusi1', 'Keterangan', 'trim|required|max_length[350]');
+        $this->tnotification->set_rules('ket_solusi', 'Keterangan', 'trim|required|max_length[350]');
 
 
         if($this->tnotification->run() !== FALSE){
             $params = array(
-                'ket_solusi1' => $this->input->post('ket_solusi1'),
+                'ket_solusi' => $this->input->post('ket_solusi'),
                 'hasil' => $this->input->post('hasil')
             );
 
             $where = array(
-                'kode_solusi1' => $this->input->post('kode_solusi1')
+                'kode_solusi' => $this->input->post('kode_solusi')
             );
             
-            if($this->m_solusi1->update_solusi1($params)){
+            if($this->m_solusi->update_solusi($params, $where)){
                 
                  // success
                 $this->tnotification->delete_last_field();
@@ -140,13 +138,13 @@ class solusi1 extends ApplicationBase{
         }
 
 
-        redirect("solusi/solusi1/edit/". $this->input->post('kode_solusi1'));
+        redirect("solusi/solusi/edit/". $this->input->post('kode_solusi'));
     }
 
     function delete($params){
         $this->_set_page_rule("D");
 
-        if($this->m_solusi1->delete_solusi1($params)){
+        if($this->m_solusi->delete_solusi($params)){
               // success
                 $this->tnotification->delete_last_field();
                 $this->tnotification->sent_notification("success", "Data berhasil dihapus");
@@ -154,7 +152,7 @@ class solusi1 extends ApplicationBase{
             $this->tnotification->sent_notification("error", "Data gagal dihapus");
 
         }
-        redirect("solusi/solusi1/");
+        redirect("solusi/solusi/");
     }
 
 

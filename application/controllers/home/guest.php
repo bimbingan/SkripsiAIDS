@@ -14,7 +14,7 @@ class guest extends ApplicationBase{
         $this->load->model('diagnosa/m_diagnosa1');
         $this->load->model('diagnosa/m_diagnosa2');
         $this->load->model('indikator/m_indikator1');
-        $this->load->model('solusi/m_solusi1');
+        $this->load->model('solusi/m_solusi');
     }
 
     function index(){
@@ -44,7 +44,7 @@ class guest extends ApplicationBase{
         $rs_indikator1 = $this->m_indikator1->get_all_indikator1();
         
         $jawaban =  array();
-        $solusi = array_column($this->m_solusi1->get_all_solusi1(), 'kode_solusi1');
+        $solusi = array_column($this->m_solusi->get_all_solusi(), 'kode_solusi');
         $kode_indikator1 = array();
         foreach ($rs_indikator1 as $key => $indikator1) {
             if( $this->input->post('indikator1_jawab'.$indikator1['kode_indikator1']) == "1"){
@@ -54,37 +54,39 @@ class guest extends ApplicationBase{
         }
 
 
+        $mb_hasil = array();
+        $md_hasil = array();
+        $cf = array();
         for($i=0;$i<3;$i++){
             $mb1 = 0.0;
             $mb2 = 0.0;
-            $mb_hasil = 0.0;
-            $cf = 0;
+            $md1 = 0.0;
+            $md2 = 0.0;
+            
             foreach($jawaban as $key => $jawab){
                 if($key == count($jawaban)){
                     continue;
                 }
                 $params = array($kode_indikator1[$key], $solusi[$i]);
+                $mb1 = ($key == 0) ? $this->m_diagnosa1->get_mb($params) : $mb_hasil[$i];
+                $md1 = ($key == 0) ? $this->m_diagnosa1->get_md($params) : $md_hasil[$i];
 
-                $mb1 = ($key == 0) ? $this->m_diagnosa1->get_mb($params) : $mb_hasil;
-                
                 $params = array($kode_indikator1[$key+1], $solusi[$i]);
                 
                 $mb2 = $this->m_diagnosa1->get_mb($params);
+                $md2 = $this->m_diagnosa1->get_md($params);
 
-                $mb_hasil = $mb1 + ($mb2 * ( 1 - $mb1 ));
-                echo (float) ( 1 - (float) $mb1 );
-                die();
+
+                $mb_hasil[$i] = $mb1 + ($mb2 * ( 1 - $mb1 ));
+                $md_hasil[$i] = $md1 + ($md2 * ( 1 - $md1 ));
+                $cf[$i] = $mb_hasil[$i] - $md_hasil[$i];
             }           
 
         }
-        
 
-        echo "<pre>";
+        $max = array_keys($cf, max($cf));
         
-        print_r($solusi);
-        print_r($jawaban);
-        print_r($kode_indikator1);
-        die();
+        echo "Diagnosa : ".($max[0]+1);
     }
 
 
