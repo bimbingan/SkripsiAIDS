@@ -31,6 +31,30 @@ class m_diagnosa2 extends CI_Model{
 		}
 	}
 
+	function get_mb($params){
+		$sql = "SELECT mb FROM diagnosa2 WHERE kode_indikator2 = ? AND kode_stadium = ?";
+		$query = $this->db->query( $sql , $params); 	// perintah sql dieksekusi kemudian disimpan di dalam var query
+		if($query->num_rows() > 0){			// query dicek apakah ada isinya atau tidak
+			$result = $query->row_array();	// hasil dari query dipindahkan ke var result dengan menggunakan fungsi result_array (mempunyai baris banyak)
+			$query->free_result();				// karena hasil sudah diperoleh maka query kita hapus
+			return $result['mb'];					// setelah itu kita kembalikan hasil var result
+		}else{
+			return NULL;					// jika query tidak berhasil maka akan mengembalikan nilai array kosong
+		}	
+	}
+
+	function get_md($params){
+		$sql = "SELECT md FROM diagnosa2 WHERE kode_indikator2 = ? AND kode_stadium = ?";
+		$query = $this->db->query( $sql , $params);
+		if($query->num_rows() > 0){			// query dicek apakah ada isinya atau tidak
+			$result = $query->row_array();	// hasil dari query dipindahkan ke var result dengan menggunakan fungsi result_array (mempunyai baris banyak)
+			$query->free_result();				// karena hasil sudah diperoleh maka query kita hapus
+			return $result['md'];					// setelah itu kita kembalikan hasil var result
+		}else{
+			return NULL;					// jika query tidak berhasil maka akan mengembalikan nilai array kosong
+		}	
+	}
+
 	function insert_diagnosa2( $params ){
 		return $this->db->insert('diagnosa2', $params);
 	}

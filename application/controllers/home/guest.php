@@ -14,6 +14,7 @@ class guest extends ApplicationBase{
         $this->load->model('diagnosa/m_diagnosa1');
         $this->load->model('diagnosa/m_diagnosa2');
         $this->load->model('indikator/m_indikator1');
+        $this->load->model('indikator/m_indikator2');
         $this->load->model('solusi/m_solusi');
     }
 
@@ -75,6 +76,65 @@ class guest extends ApplicationBase{
                 
                 $mb2 = $this->m_diagnosa1->get_mb($params);
                 $md2 = $this->m_diagnosa1->get_md($params);
+
+
+                $mb_hasil[$i] = $mb1 + ($mb2 * ( 1 - $mb1 ));
+                $md_hasil[$i] = $md1 + ($md2 * ( 1 - $md1 ));
+                $cf[$i] = $mb_hasil[$i] - $md_hasil[$i];
+            }           
+
+        }
+
+        $max = array_keys($cf, max($cf));
+        
+        echo "Diagnosa : ".($max[0]+1);
+    }
+
+
+
+
+ function diagnosa(){
+        $rs_indikator2 = $this->m_indikator2->get_all_indikator2();
+        $this->smarty->assign("rs_indikator2", $rs_indikator2);
+        $this->smarty->assign("no", 1);
+        parent::display("guest/diagnosa/index.html");
+    }
+
+    function indikator2_process(){
+        $rs_indikator2 = $this->m_indikator2->get_all_indikator2();
+        
+        $jawaban =  array();
+        $stadium = array_column($this->m_stadium->get_all_stadium(), 'kode_stadium');
+        $kode_indikator2 = array();
+        foreach ($rs_indikator2 as $key => $indikator2) {
+            if( $this->input->post('indikator2_jawab'.$indikator2['kode_indikator2']) == "1"){
+                $jawaban[] = $this->input->post('indikator2_jawab'.$indikator2['kode_indikator2']); 
+                $kode_indikator2[] = $indikator2['kode_indikator2']; 
+            }
+        }
+
+
+        $mb_hasil = array();
+        $md_hasil = array();
+        $cf = array();
+        for($i=0;$i<4;$i++){
+            $mb1 = 0.0;
+            $mb2 = 0.0;
+            $md1 = 0.0;
+            $md2 = 0.0;
+            
+            foreach($jawaban as $key => $jawab){
+                if($key == count($jawaban)){
+                    continue;
+                }
+                $params = array($kode_indikator2[$key], $stadium[$i]);
+                $mb1 = ($key == 0) ? $this->m_diagnosa2->get_mb($params) : $mb_hasil[$i];
+                $md1 = ($key == 0) ? $this->m_diagnosa2->get_md($params) : $md_hasil[$i];
+
+                $params = array($kode_indikator2[$key+1], $stadium[$i]);
+                
+                $mb2 = $this->m_diagnosa2->get_mb($params);
+                $md2 = $this->m_diagnosa2->get_md($params);
 
 
                 $mb_hasil[$i] = $mb1 + ($mb2 * ( 1 - $mb1 ));

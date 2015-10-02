@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Indikator 2</title>
+</head>
+<body>
+<form action="{$config->site_url('home/guest/indikator2_process')}" method="POST">
+{foreach $rs_indikator2 as $indikator2}
+  <div>{$no++}. {$indikator2.ket_indikator2}</div>
+  <input type="radio" name="indikator2_jawab{$indikator2.kode_indikator2}" value="1"> Ya
+  <input type="radio" name="indikator2_jawab{$indikator2.kode_indikator2}" value="0"> Tidak
+{/foreach}
+<p>
+<input type="submit" name="" value="Simpan">
+  
+</p>
+</form>
+</body>
+
+</html>
