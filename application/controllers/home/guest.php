@@ -16,6 +16,7 @@ class guest extends ApplicationBase{
         $this->load->model('indikator/m_indikator1');
         $this->load->model('indikator/m_indikator2');
         $this->load->model('solusi/m_solusi');
+        $this->load->model('stadium/m_stadium');
     }
 
     function index(){
