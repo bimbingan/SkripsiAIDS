@@ -1,20 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Indikator 2</title>
+    <title>Indikator 2</title>
+    {$LOAD_STYLE}
 </head>
 <body>
-<form action="{$config->site_url('home/guest/indikator2_process')}" method="POST">
-{foreach $rs_indikator2 as $indikator2}
-  <div>{$no++}. {$indikator2.ket_indikator2}</div>
-  <input type="radio" name="indikator2_jawab{$indikator2.kode_indikator2}" value="1"> Ya
-  <input type="radio" name="indikator2_jawab{$indikator2.kode_indikator2}" value="0"> Tidak
-{/foreach}
-<p>
-<input type="submit" name="" value="Simpan">
-  
-</p>
-</form>
-</body>
+    <form action="{$config->site_url('home/guest/indikator2_process')}" method="POST">
+        <div id="wrapper">
+            <nav>
+                <div>
+                    <!-- <a href="">Sign Out</a> -->
+                </div>
+                <div id="number-state">1</div>
+                <div><input type="submit" name="submit" id="save" value="Save" disabled="disabled"/></div>
+            </nav>
+            <section id="warning">
+                <span>Tidak boleh lanjut sebelum jawaban dipilih ;)</span>
+            </section>
+            <div class="pages">
+                {$i=0}
 
-</html>
+                {foreach $rs_indikator2 as $key => $indikator2}
+                {$left = $i*(count($rs_indikator2)+(100 - count($rs_indikator2)))}
+                <!-- <input type="hidden" name="id_pertanyaan[{{$value->id_pertanyaan}}]" value="{{$value->id_pertanyaan}}"> -->
+                {if $key eq 0}
+                <div class="page active" data-number="{$i}" style="left: {$left}%;">
+                    {else}
+                    <div class="page" data-number="{$i}" style="left:{$left}%;">
+                        {/if}
+                        <div>
+                            <p>
+                                <h1>{$indikator2.ket_indikator2}</h1>
+                            </p>
+                            <br>
+                            <p>
+                                <input type="radio" name="indikator2_jawab{$indikator2.kode_indikator2}" id="indikator2_jawab{$indikator2.kode_indikator2}ya" value="1">
+                                <label for="indikator2_jawab{$indikator2.kode_indikator2}ya">Ya </label> &nbsp;
+                                <input type="radio" name="indikator2_jawab{$indikator2.kode_indikator2}" id="indikator2_jawab{$indikator2.kode_indikator2}tidak" value="0">
+                                <label for="indikator2_jawab{$indikator2.kode_indikator2}tidak">Tidak </label>
+                            </p>
+                        </div>
+                    </div>
+                    {assign var=i value=$i+1}
+
+                    {/foreach}
+                    <a href="#" class="backbutton">
+                        <span>&nbsp;</span>
+                    </a>
+                    <a href="#" class="nextbutton">
+                        <span>&nbsp;</span>
+                    </a>
+                </div>
+            </div>
+        </form>
+        {$LOAD_JAVASCRIPT}
+
+        <script>
+        $(document).ready(function(){
+            $(".nextbutton").on("click", function(){
+                if($(".active input[type='radio']:checked").length > 0){
+                    $("#warning span").slideUp();
+
+                    var activeNumber = parseInt($(".active").attr("data-number"));
+                    var pages = $(".page").length - 1;
+
+                    if((activeNumber) == {count($rs_indikator2) - 2}){
+                        $('#save').removeAttr('disabled');
+                    } else {
+                        $('#save').attr('disabled', 'disabled');
+                    }
+
+                    if(pages >= (activeNumber + 1)){
+                        $(".page[data-number='" + activeNumber + "']").removeClass('active');
+                        activeNumber++;
+                        var leftPercent = activeNumber * 100;
+
+                        $(".pages").css("left", "-" + leftPercent + "%");
+                        $(".page[data-number='" + activeNumber + "']").addClass('active');
+
+                        $("#number-state").html(activeNumber+1);
+                    } else {
+                        console.log("top");
+                        return false;
+                    }
+                } else {
+                    $("#warning span").slideDown();
+                }
+            });
+
+            $(".backbutton").on("click", function(){
+                $("#warning span").slideUp();
+
+                var activeNumber = parseInt($(".active").attr("data-number"));
+
+                $('#save').attr('disabled', 'disabled');
+
+                if(activeNumber > 0){
+                    $(".page[data-number='" + activeNumber + "']").removeClass('active');
+                    activeNumber--;
+                    var leftPercent = activeNumber * 100;
+
+                    $(".pages").css("left", "-" + leftPercent + "%");
+                    $(".page[data-number='" + activeNumber + "']").addClass('active');
+
+                    $("#number-state").html(activeNumber+1);
+                } else {
+                    console.log("bottom");
+                    return false;
+                }
+            });
+        });
+        </script>
+    </body>
+
+    </html>

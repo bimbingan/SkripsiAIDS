@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hasil Diagnosa</title>
+	{$LOAD_STYLE}
+</head>
+<style type="text/css" media="screen">
+	.box{
+		display: block;
+		margin: 120px auto 0;
+		height: 200px;
+		width: 600px;
+	}
+</style>
+<body>
+<div id="wrapper">
+<nav>
+<h1>Hasil Diagnosa</h1>
+</nav>
+
+	<div class="pages">
+	<div class="box">
+	<h3>{$solusi.hasil}</h3>
+	<p>{$solusi.ket_solusi}</p>
+	{if $solusi.kode_solusi neq 'S1001'}
+	<a href="{$config->site_url('home/guest/diagnosa')}" title="">Tes Tahap 2</a>
+	{/if}
+	</div>
+	</div>
+
+</div>
+
+
+
+</body>
+</html>

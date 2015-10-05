@@ -50,6 +50,7 @@ class guest extends ApplicationBase{
         $rs_indikator1 = $this->m_indikator1->get_all_indikator1();
 
         $jawaban =  array();
+         $this->smarty->load_style("guest/test/test.css");
         $solusi = array_column($this->m_solusi->get_all_solusi(), 'kode_solusi');
         $kode_indikator1 = array();
         foreach ($rs_indikator1 as $key => $indikator1) {
@@ -58,8 +59,7 @@ class guest extends ApplicationBase{
                 $kode_indikator1[] = $indikator1['kode_indikator1'];
             }
         }
-
-
+        
         $mb_hasil = array();
         $md_hasil = array();
         $cf = array();
@@ -70,14 +70,17 @@ class guest extends ApplicationBase{
             $md2 = 0.0;
 
             foreach($jawaban as $key => $jawab){
+                
                 if($key == count($jawaban)){
                     continue;
                 }
+
                 $params = array($kode_indikator1[$key], $solusi[$i]);
                 $mb1 = ($key == 0) ? $this->m_diagnosa1->get_mb($params) : $mb_hasil[$i];
                 $md1 = ($key == 0) ? $this->m_diagnosa1->get_md($params) : $md_hasil[$i];
 
-                $params = array($kode_indikator1[$key+1], $solusi[$i]);
+                $params = ($key == 0) ? array($kode_indikator1[$key+1], $solusi[$i]) : array($kode_indikator1[$key], $solusi[$i]) ;
+                
 
                 $mb2 = $this->m_diagnosa1->get_mb($params);
                 $md2 = $this->m_diagnosa1->get_md($params);
@@ -85,6 +88,7 @@ class guest extends ApplicationBase{
 
                 $mb_hasil[$i] = $mb1 + ($mb2 * ( 1 - $mb1 ));
                 $md_hasil[$i] = $md1 + ($md2 * ( 1 - $md1 ));
+                
                 $cf[$i] = $mb_hasil[$i] - $md_hasil[$i];
             }
 
@@ -92,11 +96,25 @@ class guest extends ApplicationBase{
 
         $max = array_keys($cf, max($cf));
 
-        echo "Diagnosa : ".($max[0]+1);
+        $solusi = $this->m_solusi->get_all_solusi();
+
+        $hasil_solusi = $solusi[$max[0]];
+
+        $this->smarty->assign("solusi", $hasil_solusi);
+        $this->smarty->assign("cf", $cf);
+        $this->smarty->assign("max", $max);
+        $this->smarty->assign("mb", $mb_hasil);
+        $this->smarty->assign("md", $md_hasil);
+
+        parent::display("guest/hasil/index.html");
+
     }
 
     function diagnosa(){
         $rs_indikator2 = $this->m_indikator2->get_all_indikator2();
+          $this->smarty->load_javascript("resource/js/jquery/jquery.min.js");
+        // load style
+        $this->smarty->load_style("guest/test/test.css");
         $this->smarty->assign("rs_indikator2", $rs_indikator2);
         $this->smarty->assign("no", 1);
         parent::display("guest/diagnosa/index.html");
@@ -106,6 +124,7 @@ class guest extends ApplicationBase{
         $rs_indikator2 = $this->m_indikator2->get_all_indikator2();
 
         $jawaban =  array();
+        $this->smarty->load_style("guest/test/test.css");
         $stadium = array_column($this->m_stadium->get_all_stadium(), 'kode_stadium');
         $kode_indikator2 = array();
         foreach ($rs_indikator2 as $key => $indikator2) {
@@ -126,14 +145,17 @@ class guest extends ApplicationBase{
             $md2 = 0.0;
 
             foreach($jawaban as $key => $jawab){
+                
                 if($key == count($jawaban)){
                     continue;
                 }
+
                 $params = array($kode_indikator2[$key], $stadium[$i]);
                 $mb1 = ($key == 0) ? $this->m_diagnosa2->get_mb($params) : $mb_hasil[$i];
                 $md1 = ($key == 0) ? $this->m_diagnosa2->get_md($params) : $md_hasil[$i];
 
-                $params = array($kode_indikator2[$key+1], $stadium[$i]);
+                $params = ($key == 0) ? array($kode_indikator2[$key+1], $solusi[$i]) : array($kode_indikator2[$key], $stadium[$i]) ;
+                
 
                 $mb2 = $this->m_diagnosa2->get_mb($params);
                 $md2 = $this->m_diagnosa2->get_md($params);
@@ -141,6 +163,7 @@ class guest extends ApplicationBase{
 
                 $mb_hasil[$i] = $mb1 + ($mb2 * ( 1 - $mb1 ));
                 $md_hasil[$i] = $md1 + ($md2 * ( 1 - $md1 ));
+                
                 $cf[$i] = $mb_hasil[$i] - $md_hasil[$i];
             }
 
@@ -148,6 +171,12 @@ class guest extends ApplicationBase{
 
         $max = array_keys($cf, max($cf));
 
-        echo "Diagnosa : ".($max[0]+1);
+        $stadium = $this->m_stadium->get_all_stadium();
+
+        $hasil_stadium = $stadium[$max[0]];
+
+        $this->smarty->assign('stadium', $hasil_stadium);
+        parent::display("guest/hasil/diagnosa.html");
+
     }
 }

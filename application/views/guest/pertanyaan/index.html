@@ -21,7 +21,7 @@
                 {$i=0}
 
                 {foreach $rs_indikator1 as $key => $indikator1}
-                {$left = $i*(count($rs_indikator1)+82)}
+                {$left = $i*(count($rs_indikator1)+(100 - count($rs_indikator1)))}
                 <!-- <input type="hidden" name="id_pertanyaan[{{$value->id_pertanyaan}}]" value="{{$value->id_pertanyaan}}"> -->
                 {if $key eq 0}
                 <div class="page active" data-number="{$i}" style="left: {$left}%;">
@@ -64,7 +64,7 @@
                     var activeNumber = parseInt($(".active").attr("data-number"));
                     var pages = $(".page").length - 1;
 
-                    if((activeNumber) == 16){
+                    if((activeNumber) == {count($rs_indikator1)}-2){
                         $('#save').removeAttr('disabled');
                     } else {
                         $('#save').attr('disabled', 'disabled');

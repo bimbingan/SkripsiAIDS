@@ -7,7 +7,7 @@ class m_indikator1 extends CI_Model{
 	}
 
 	function get_all_indikator1(){
-		$sql = "SELECT * FROM indikator1"; 	// perintah sql berbentuk string
+		$sql = "SELECT * FROM indikator1 LIMIT 5"; 	// perintah sql berbentuk string
 		$query = $this->db->query($sql); 	// perintah sql dieksekusi kemudian disimpan di dalam var query
 		if($query->num_rows() > 0){			// query dicek apakah ada isinya atau tidak
 			$result = $query->result_array();	// hasil dari query dipindahkan ke var result dengan menggunakan fungsi result_array (mempunyai baris banyak)
