@@ -1,0 +1,165 @@
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    $('.calendar').fullCalendar({
+        header: {
+            left: 'none',
+            right: 'none',
+            center: 'title',
+        },
+        editable: true,
+        eventLimit: false, // allow "more" link when too many events
+        events: {
+            url: "{$config->site_url('kegiatan/kegiatan/get_json_data')}/{$id_kegiatan}",
+            error: function () {
+                $('#script-warning').show();
+            }
+        },
+        loading: function (bool) {
+            $('#loading').toggle(bool);
+        }
+    });
+    {foreach $rs_bulan as $key_bulan => $bulan}
+    var date = moment("{$bulan.tahun}-{$bulan.bulan}-1", "YYYY-MM-DD");
+    $('#calendar{$key_bulan}').fullCalendar( 'gotoDate', date );
+    {/foreach}
+    $('.printBtn').on('click', function (){
+        window.print();
+    });
+});
+</script>
+<style type="text/css">
+.calendar {
+    max-width: 900px;
+    margin : 20px auto;
+    padding: 0 10px;
+    font-size: 12px;
+}
+.content #calendar a{
+    color: #FFF;
+}
+
+.fc-day-grid-event.red{
+    background-color: #E74B3B;
+    border-color: #E74B3B;
+}
+.fc-day-grid-event.green{
+    background-color: #94AB75;
+    border-color: #94AB75;
+}
+@media screen{
+    .page-title{
+        display: none;
+        visibility: hidden;
+    }
+}
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    html, body {
+        height: 99%;
+    }
+
+    .calendar, .calendar *, .page-title {
+        visibility: visible;
+    }
+
+    .page-title{
+        text-align: center;
+    }
+
+    img.page-title{
+        display: block;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+    .print {literal}{page-break-after: always;}{/literal}
+}
+</style>
+<div class="row page-heading">
+    <div class="col-lg-10">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Kegiatan</a>
+            </li>
+            <li class="active">
+                <strong>Kalender Kegiatan</strong>
+            </li>
+        </ol>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <div class="box-title green">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="form-group">
+                                <label class="col-sm-12 control-label"> <i class="fa fa-search"></i> &nbsp; Pencarian </b></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <form class="form-horizontal" action="{$config->site_url('kegiatan/kegiatan/search_kegiatan')}" method="POST">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Tahun Ajaran</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" name="periode_kode">
+                                            {foreach $rs_periode as $periode}
+                                            <option {if $search.periode_kode eq $periode.periode_kode}selected{/if} value="{$periode.periode_kode}">{$periode.periode_tahun}/{$periode.periode_tahun+1} - {$periode.periode_semester|upper}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pull-right action-right">
+                                <input class="btn btn-primary" name="save" type="submit" value="Cari">
+                                <input class="btn btn-danger" name="save" type="submit" value="Reset">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li><a href="{$config->site_url('kegiatan/kegiatan/')}" title=""> Data Kalender Kegiatan </a></li>
+                    <li class="active"><a href="#" title=""> Lihat Kalender</a></li>
+                   <!--  <li class="pull-right"><a href="#" class="printBtn hidden-print text-muted"><i class="fa fa-print"></i> Cetak Kalender</a></li> -->
+                </ul>
+                <div class="print">
+
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h2 class="page-title">KALENDER AKADEMIK</h2>
+                                <h3 class="page-title">{$sekolah.nama|upper}</h3>
+                                <h3 class="page-title">Tahun Ajaran {$periode.periode_tahun}/{$periode.periode_tahun+1} - {$periode.periode_semester|upper}</h3>
+                                <img align="middle" class="page-title img-responsive" width="200px" src="{$BASEURL}/resource/doc/images/logo/{$image[0].pref_value}" alt="" />
+                                <div class="print">
+
+                                </div>
+                                {foreach $rs_bulan as $key_bulan => $bulan}
+                                <div class='calendar print' id="calendar{$key_bulan}"></div>
+                                {/foreach}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

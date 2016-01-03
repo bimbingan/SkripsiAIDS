@@ -42,16 +42,16 @@ define('ENVIRONMENT', 'development');
 if (defined('ENVIRONMENT')) {
     switch (ENVIRONMENT) {
         case 'development':
-            error_reporting(E_ERROR);
-            break;
+        error_reporting(E_ERROR);
+        break;
 
         case 'testing':
         case 'production':
-            error_reporting(0);
-            break;
+        error_reporting(0);
+        break;
 
         default:
-            exit('The application environment is not set correctly.');
+        exit('The application environment is not set correctly.');
     }
 }
 

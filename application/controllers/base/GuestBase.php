@@ -32,13 +32,20 @@ class ApplicationBase extends CI_Controller {
         $this->load->library("datetimemanipulation");
         $this->smarty->assign("dtm", $this->datetimemanipulation);
         // load javascript
-        $this->smarty->load_javascript("resource/js/munter/html5shiv.js");
-        $this->smarty->load_javascript("resource/js/munter/jquery-1.10.2.min.js");
-        $this->smarty->load_javascript("resource/js/munter/jquery-migrate-1.2.1.min.js");
-        $this->smarty->load_javascript("resource/js/munter/bootstrap.min.js");
-        $this->smarty->load_javascript("resource/js/munter/jquery.easing.1.3.js");
-        $this->smarty->load_javascript("resource/js/munter/jquery.fancybox.pack-v=2.1.5.js");
-        $this->smarty->load_javascript("resource/js/munter/script.js");
+        $this->smarty->load_javascript("resource/js/jquery/jquery.min.js");
+        $this->smarty->load_javascript("resource/js/bootstrap/bootstrap.min.js");
+        $this->smarty->load_javascript("resource/js/jquery-isotope/jquery.isotope.js");
+        $this->smarty->load_javascript("resource/js/jquery-prettyphoto/jquery.prettyPhoto.js");
+        $this->smarty->load_javascript("resource/js/filter/filter.js");
+        $this->smarty->load_javascript("resource/js/jquery-flexslider/jquery.flexslider-min.js");
+        $this->smarty->load_javascript("resource/js/jquery-cslider/jquery.cslider.js");
+        $this->smarty->load_javascript("resource/js/modernizr/modernizr.custom.28468.js");
+        $this->smarty->load_javascript("resource/js/owl-carousel/owl.carousel.min.js");
+        $this->smarty->load_javascript("resource/js/respond-min/respond.min.js");
+        $this->smarty->load_javascript("resource/js/html5/html5shiv.js");
+        $this->smarty->load_javascript("resource/js/custom/custom.js");
+
+        
         // load style
     }
 

@@ -1,7 +1,10 @@
 /* CSS Document */
 
 @import url('css/bootstrap.min.css');
+@import url('css/prettyPhoto.css');
+@import url('css/flexslider.css');
+@import url('css/slider.css');
+@import url('css/owl.carousel.css');
 @import url('css/font-awesome.min.css');
 @import url('css/style.css');
-@import url('css/custom.css');
-@import url('fancybox/jquery.fancybox-v=2.1.5.css');
+@import url('css/red.css');

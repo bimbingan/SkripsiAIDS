@@ -1,0 +1,38 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#calendar').fullCalendar({
+			header : {
+				right : 'next',
+				left : 'prev',
+				center : 'title',
+			},
+			defaultDate: '2015-12-12',
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+			{foreach $kegiatan as $k}
+			{
+				title : '{$k.nama_kegiatan} - {$k.tempat_kegiatan}',
+				start : '{$k.tanggal_mulai}',
+				end : '{$k.tanggal_selesai}',
+			},
+			{/foreach}
+			]
+		});
+	});	
+</script>
+
+<div class="row info-content">	
+	<div class="col-lg-8 col-lg-offset-2">
+		<div class="row">
+			&nbsp;
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div id="calendar">
+
+				</div>						
+			</div>			
+		</div>	
+	</div>
+</div>
