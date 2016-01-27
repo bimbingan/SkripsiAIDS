@@ -235,14 +235,35 @@ class welcome extends ApplicationBase{
 
         $hasil_solusi = $solusi[$max[0]];
 
-        $this->smarty->assign("solusi", $hasil_solusi);
-        $this->smarty->assign("cf", $cf);
-        $this->smarty->assign("max", $max);
-        $this->smarty->assign("mb", $mb_hasil);
-        $this->smarty->assign("md", $md_hasil);
+        // echo "<pre>";
+        // echo "Hasil MB : <br>";
+        // print_r($mb_hasil);
+        // echo "<br>";
+        // echo "Hasil MD : <br>";
+        // echo "<br>";
+        // print_r($md_hasil);
+        // echo "<br>";
+        // echo "CF : <br>";
+        // print_r($cf);
+        // print_r($hasil_solusi);
+        // die();
 
-        parent::display("guest/hasil/index.html");
+        if (empty($cf)) {
+            $this->smarty->assign('solusi', $solusi[0]);
+            parent::display("guest/hasil/index.html");
+        }else{
+            $this->smarty->assign("solusi", $hasil_solusi);
+            $this->smarty->assign("cf", $cf);
+            $this->smarty->assign("max", $max);
+            $this->smarty->assign("mb", $mb_hasil);
+            $this->smarty->assign("md", $md_hasil);
+            parent::display("guest/hasil/index.html");
 
+        }
+
+
+
+        
     }
 
     function diagnosa(){

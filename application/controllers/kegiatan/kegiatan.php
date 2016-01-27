@@ -90,7 +90,7 @@ class kegiatan extends ApplicationBase {
                 "tanggal_mulai" => $this->input->post('tanggal_mulai'),
                 "tanggal_selesai" => $this->input->post('tanggal_selesai'),
                 "kalender_st" => $this->input->post('kalender_st')
-            );
+                );
             // set
             $this->tsession->set_userdata('search_kegiatan_kegiatan', $params);
         } else {
@@ -141,10 +141,8 @@ class kegiatan extends ApplicationBase {
                 'tempat_kegiatan' => $this->input->post('tempat_kegiatan'),
                 'tanggal_mulai' => $this->input->post('tanggal_mulai'),
                 'tanggal_selesai' => $this->input->post('tanggal_selesai'),
-                'kalender_st' => $this->input->post('kalender_st'),
-                'mdb' => $this->com_user['user_id'],
-                'mdd' => date('Y-m-d')
-            );
+                'kalender_st' => $this->input->post('kalender_st')
+                );
             // insert
             if ($this->m_kegiatan->insert_kegiatan($params)) {
                 $this->tnotification->delete_last_field();
@@ -187,7 +185,7 @@ class kegiatan extends ApplicationBase {
         // set page rules
         $this->_set_page_rule("U");
         // cek input
-         $this->tnotification->set_rules('id_kegiatan', 'Id Kegiatan', 'trim|required');
+        $this->tnotification->set_rules('id_kegiatan', 'Id Kegiatan', 'trim|required');
         $this->tnotification->set_rules('nama_kegiatan', 'Nama Kegiatan', 'trim|max_length[50]');
         $this->tnotification->set_rules('tempat_kegiatan', 'Tempat Kegiatan', 'trim|max_length[50]');
         $this->tnotification->set_rules('tanggal_mulai', 'Tanggal Mulai', 'trim|required');
@@ -203,18 +201,18 @@ class kegiatan extends ApplicationBase {
             // -- end of process data
 
             $params = array(
-                 'id_kegiatan' => $this->input->post('id_kegiatan'),
-                'nama_kegiatan' => $this->input->post('nama_kegiatan'),
-                'tempat_kegiatan' => $this->input->post('tempat_kegiatan'),
-                'tanggal_mulai' => $this->input->post('tanggal_mulai'),
-                'tanggal_selesai' => $this->input->post('tanggal_selesai'),
-                'kalender_st' => $this->input->post('kalender_st'),
-                'mdb' => $this->com_user['user_id'],
-                'mdd' => date('Y-m-d')
-            );
+               'id_kegiatan' => $this->input->post('id_kegiatan'),
+               'nama_kegiatan' => $this->input->post('nama_kegiatan'),
+               'tempat_kegiatan' => $this->input->post('tempat_kegiatan'),
+               'tanggal_mulai' => $this->input->post('tanggal_mulai'),
+               'tanggal_selesai' => $this->input->post('tanggal_selesai'),
+               'kalender_st' => $this->input->post('kalender_st'),
+               'mdb' => $this->com_user['user_id'],
+               'mdd' => date('Y-m-d')
+               );
             $where = array(
                 'id_kegiatan' => $this->input->post('id_kegiatan')
-            );
+                );
             // insert
             if ($this->m_kegiatan->update_kegiatan($params, $where)) {
                 $this->tnotification->delete_last_field();
@@ -293,7 +291,7 @@ class kegiatan extends ApplicationBase {
         if ($this->input->post('save') == 'Cari') {
             $params = array(
                 "id_kegiatan" => $this->input->post('id_kegiatan')
-            );
+                );
             // set
             $this->tsession->set_userdata('search_kegiatan_view', $params);
         } else {
@@ -315,21 +313,21 @@ class kegiatan extends ApplicationBase {
                 'start' => $rs['tanggal_mulai'],
                 'end' => $rs['tanggal_selesai'],
                 'editable' => false
-            );
+                );
             switch ($rs['kalender_st']) {
                 case 'kegiatan':
-                    $arrResult[$key]['className'] = '';
-                    break;
+                $arrResult[$key]['className'] = '';
+                break;
                 case 'event':
-                    $arrResult[$key]['className'] = 'green';
-                    break;
+                $arrResult[$key]['className'] = 'green';
+                break;
                 case 'libur':
-                    $arrResult[$key]['className'] = 'red';
-                    break;
+                $arrResult[$key]['className'] = 'red';
+                break;
 
                 default:
 
-                    break;
+                break;
             }
         }
         echo json_encode($arrResult);
@@ -346,7 +344,7 @@ class kegiatan extends ApplicationBase {
 // require_once( APPPATH . 'controllers/base/OperatorBase.php' );
 
 // class kegiatan extends ApplicationBase{
-	
+
 // 	function __construct(){
 // 		parent::__construct();
 // 		// load model
@@ -384,7 +382,7 @@ class kegiatan extends ApplicationBase {
 // 	function add(){
 //         $this->_set_page_rule("C");
 //         $this->smarty->assign("template_content", "kegiatan/add.html");
-        
+
 //         // load js
 //         $this->smarty->load_javascript('resource/js/moment/moment.js');
 //         $this->smarty->load_javascript('resource/js/datetimepicker/bootstrap-datetimepicker.min.js');
@@ -418,9 +416,9 @@ class kegiatan extends ApplicationBase {
 //                 'tanggal_selesai' => $this->input->post('tanggal_selesai'),
 //                 'kalender_st' => $this->input->post('kalender_st'),
 //             );
-            
+
 //             if($this->m_kegiatan->insert_kegiatan($params)){
-                
+
 //                  // success
 //                 $this->tnotification->delete_last_field();
 //                 $this->tnotification->sent_notification("success", "Data berhasil disimpan");
@@ -437,7 +435,7 @@ class kegiatan extends ApplicationBase {
 
 
 //         redirect("kegiatan/kegiatan/add");
-		
+
 // 	}
 
 //     function edit($params){
@@ -476,9 +474,9 @@ class kegiatan extends ApplicationBase {
 //             $where = array(
 //                 'id_kegiatan' => $this->input->post('id_kegiatan')
 //             );
-            
+
 //             if($this->m_kegiatan->update_kegiatan($params, $where)){
-                
+
 //                  // success
 //                 $this->tnotification->delete_last_field();
 //                 $this->tnotification->sent_notification("success", "Data berhasil disimpan");
